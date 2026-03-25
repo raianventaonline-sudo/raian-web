@@ -4,9 +4,8 @@ html{scroll-behavior:smooth}
 body{
   margin:0;
   font-family:"Segoe UI",Arial,sans-serif;
-  background:
-  radial-gradient(circle at top, #f7f3f5 0%, #f3edef 32%, #f4f0eb 100%);
-  color:#231d2f;
+  background:linear-gradient(180deg,#fbf8f3 0%, #f4efe8 100%);
+  color:#1f1b18;
   line-height:1.6;
 }
 
@@ -24,9 +23,9 @@ img{
   position:sticky;
   top:0;
   z-index:20;
-  background:rgba(248,245,255,.88);
+  background:rgba(251,248,243,.92);
   backdrop-filter:blur(10px);
-  border-bottom:1px solid rgba(95,61,196,.08);
+  border-bottom:1px solid rgba(31,27,24,.06);
 }
 
 .header-inner{
@@ -38,14 +37,13 @@ img{
 }
 
 .brand{
-  color:#5a3f52;
+  color:#1f1b18;
   font-weight:900;
   letter-spacing:.22em;
   font-size:1.05rem;
   text-transform:uppercase;
   text-align:center;
   line-height:1;
-  text-shadow:0 1px 0 rgba(255,255,255,.45);
 }
 
 .hero{
@@ -64,44 +62,42 @@ img{
   font-size:.78rem;
   text-transform:uppercase;
   letter-spacing:.16em;
-  color:#7a5c70;
+  color:#7c7063;
   font-weight:800;
   margin-bottom:10px;
 }
 
 h1{
-  
   margin:0 0 14px;
   font-size:clamp(2.2rem,5vw,4rem);
   line-height:1.02;
   letter-spacing:-.03em;
-  color:#4b3444;
+  color:#1f1b18;
 }
-
 
 h2{
   margin:0 0 12px;
   font-size:clamp(1.5rem,2vw,2.1rem);
   line-height:1.1;
-  color:#4b3444;
+  color:#1f1b18;
 }
 
 h3{
-   margin:0 0 10px;
-  color:#5a3f52;
-  font-size:1.08rem;;
+  margin:0 0 10px;
+  color:#1f1b18;
+  font-size:1.08rem;
 }
 
 .lead{
   font-size:1.08rem;
-  color:#574d70;
+  color:#4f4841;
   margin:0 0 12px;
   max-width:58ch;
 }
 
 .sublead{
   margin:0;
-  color:#6d6385;
+  color:#6a6056;
   max-width:60ch;
 }
 
@@ -113,29 +109,26 @@ h3{
 }
 
 .btn{
-  margin:0 0 10px;
-  color:#5a3f52;
-  font-size:1.08rem;
-}
-
-.btn{
   display:inline-block;
   text-decoration:none;
-  background:linear-gradient(135deg,#5a3f52,#8a6a7f);
+  background:linear-gradient(135deg,#1f1b18,#4a433c);
   color:#fff;
   padding:13px 18px;
   border-radius:16px;
   font-weight:800;
-  box-shadow:0 10px 24px rgba(90,63,82,.20);
+  box-shadow:0 10px 24px rgba(31,27,24,.18);
   transition:transform .2s ease, opacity .2s ease;
+}
 
+.btn:hover{
+  transform:translateY(-1px);
+  opacity:.96;
 }
 
 .btn-light{
-  background:#efe7eb;
-  color:#5a3f52;
+  background:#ece5dc;
+  color:#1f1b18;
   box-shadow:none;
-
 }
 
 .hero-card,
@@ -145,11 +138,11 @@ h3{
 .ritual-card,
 .faq-card,
 .final-box{
-  background:rgba(255,255,255,.88);
+  background:rgba(255,255,255,.78);
   border-radius:24px;
   overflow:hidden;
-  box-shadow:0 12px 28px rgba(32,20,56,.08);
-  border:1px solid rgba(93,59,196,.08);
+  box-shadow:0 12px 28px rgba(31,27,24,.07);
+  border:1px solid rgba(31,27,24,.05);
 }
 
 .hero-image{
@@ -164,11 +157,12 @@ h3{
 
 .intro-box{
   padding:22px 24px;
+  background:linear-gradient(180deg,#fffdfa 0%, #f7f2eb 100%);
 }
 
 .intro-box p{
   margin:0;
-  color:#5d5472;
+  color:#554d46;
   font-size:1.02rem;
 }
 
@@ -186,17 +180,19 @@ h3{
 
 .card{
   padding:24px;
+  background:linear-gradient(180deg,#ffffff 0%, #faf6f0 100%);
 }
 
 .card p{
   margin:0;
-  color:#5e5573;
+  color:#5a5149;
 }
 
 .icon-img{
   width:56px;
   height:56px;
   margin-bottom:14px;
+  filter:grayscale(100%) contrast(105%);
 }
 
 .split-grid{
@@ -219,7 +215,7 @@ h3{
 .list{
   margin:0;
   padding-left:20px;
-  color:#5d5472;
+  color:#554d46;
 }
 
 .list li{
@@ -228,7 +224,7 @@ h3{
 
 .note{
   margin-top:14px;
-  color:#786f90;
+  color:#6e645b;
 }
 
 .ritual-grid,
@@ -241,21 +237,22 @@ h3{
 .ritual-card,
 .faq-card{
   padding:24px;
+  background:linear-gradient(180deg,#ffffff 0%, #faf6f0 100%);
 }
 
 .ritual-card p,
 .faq-card p{
   margin:0;
-  color:#5e5573;
+  color:#5a5149;
 }
 
 .step-number{
-   width:40px;
+  width:40px;
   height:40px;
   border-radius:50%;
   display:grid;
   place-items:center;
-  background:linear-gradient(135deg,#5a3f52,#8a6a7f);
+  background:linear-gradient(135deg,#1f1b18,#4a433c);
   color:#fff;
   font-weight:800;
   margin-bottom:14px;
@@ -268,13 +265,13 @@ h3{
 .final-box{
   padding:34px 24px;
   text-align:center;
-  background:linear-gradient(180deg,#ffffff 0%, #f3eeff 100%);
+  background:linear-gradient(180deg,#ffffff 0%, #f7f2eb 100%);
 }
 
 .final-box p{
   max-width:720px;
   margin:0 auto;
-  color:#5e5573;
+  color:#5c534b;
 }
 
 @media (max-width:1000px){
