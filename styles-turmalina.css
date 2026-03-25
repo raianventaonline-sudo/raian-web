@@ -5,7 +5,7 @@ body{
   margin:0;
   font-family:"Segoe UI",Arial,sans-serif;
   background:
-    radial-gradient(circle at top, #f8f5ff 0%, #f2eef9 28%, #f5f1ec 100%);
+  radial-gradient(circle at top, #f7f3f5 0%, #f3edef 32%, #f4f0eb 100%);
   color:#231d2f;
   line-height:1.6;
 }
@@ -38,7 +38,7 @@ img{
 }
 
 .brand{
-  color:#5d3bc4;
+  color:#5a3f52;
   font-weight:900;
   letter-spacing:.22em;
   font-size:1.05rem;
@@ -64,30 +64,32 @@ img{
   font-size:.78rem;
   text-transform:uppercase;
   letter-spacing:.16em;
-  color:#6e49d6;
+  color:#7a5c70;
   font-weight:800;
   margin-bottom:10px;
 }
 
 h1{
+  
   margin:0 0 14px;
   font-size:clamp(2.2rem,5vw,4rem);
   line-height:1.02;
   letter-spacing:-.03em;
-  color:#43278f;
+  color:#4b3444;
 }
+
 
 h2{
   margin:0 0 12px;
   font-size:clamp(1.5rem,2vw,2.1rem);
   line-height:1.1;
-  color:#43278f;
+  color:#4b3444;
 }
 
 h3{
-  margin:0 0 10px;
-  color:#4d2ca3;
-  font-size:1.08rem;
+   margin:0 0 10px;
+  color:#5a3f52;
+  font-size:1.08rem;;
 }
 
 .lead{
@@ -111,26 +113,29 @@ h3{
 }
 
 .btn{
+  margin:0 0 10px;
+  color:#5a3f52;
+  font-size:1.08rem;
+}
+
+.btn{
   display:inline-block;
   text-decoration:none;
-  background:linear-gradient(135deg,#5d3bc4,#8d67ff);
+  background:linear-gradient(135deg,#5a3f52,#8a6a7f);
   color:#fff;
   padding:13px 18px;
   border-radius:16px;
   font-weight:800;
-  box-shadow:0 10px 24px rgba(93,59,196,.22);
+  box-shadow:0 10px 24px rgba(90,63,82,.20);
   transition:transform .2s ease, opacity .2s ease;
-}
 
-.btn:hover{
-  transform:translateY(-1px);
-  opacity:.96;
 }
 
 .btn-light{
-  background:#ece6ff;
-  color:#4d2ca3;
+  background:#efe7eb;
+  color:#5a3f52;
   box-shadow:none;
+
 }
 
 .hero-card,
@@ -245,12 +250,12 @@ h3{
 }
 
 .step-number{
-  width:40px;
+   width:40px;
   height:40px;
   border-radius:50%;
   display:grid;
   place-items:center;
-  background:linear-gradient(135deg,#5d3bc4,#8d67ff);
+  background:linear-gradient(135deg,#5a3f52,#8a6a7f);
   color:#fff;
   font-weight:800;
   margin-bottom:14px;
