@@ -3,15 +3,277 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>RAIAN | Pulsera 7 Nudos</title>
-  <meta name="description" content="Guía de uso, significado y cuidado de la pulsera de 7 nudos de RAIAN">
-  <link rel="stylesheet" href="styles.css">
+  <title>RAIAN | Pulsera de los 7 Nudos</title>
+  <meta name="description" content="Guía de uso, significado y cuidado de la pulsera de los 7 nudos de RAIAN">
+  <style>
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(180deg,#fff8f8 0%,#f8f1ee 100%);
+      color:#2b1d1d;
+      line-height:1.6;
+    }
+    img{max-width:100%;display:block}
+    .container{
+      width:min(1100px, calc(100% - 28px));
+      margin:0 auto;
+    }
+
+    .header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(255,248,248,.92);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(153,24,24,.08);
+    }
+    .header-inner{
+      min-height:72px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .brand{
+      text-decoration:none;
+      color:#a61919;
+      font-weight:800;
+      letter-spacing:.14em;
+      font-size:1rem;
+    }
+    .nav{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+    .nav a{
+      text-decoration:none;
+      color:#6f5454;
+      font-size:.96rem;
+      font-weight:600;
+    }
+    .nav a:hover,
+    .nav a.active{
+      color:#a61919;
+    }
+
+    .hero{
+      padding:42px 0 28px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:28px;
+      align-items:center;
+    }
+    .eyebrow{
+      display:inline-block;
+      font-size:.78rem;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      color:#b42020;
+      font-weight:800;
+      margin-bottom:10px;
+    }
+    h1{
+      margin:0 0 14px;
+      font-size:clamp(2.2rem,5vw,4rem);
+      line-height:1.02;
+      letter-spacing:-.03em;
+      color:#981818;
+    }
+    h2{
+      margin:0 0 12px;
+      font-size:clamp(1.5rem,2vw,2.1rem);
+      line-height:1.1;
+      color:#981818;
+    }
+    h3{
+      margin:0 0 10px;
+      color:#981818;
+      font-size:1.08rem;
+    }
+    .lead{
+      font-size:1.08rem;
+      color:#634c4c;
+      margin:0;
+      max-width:58ch;
+    }
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:24px;
+    }
+    .btn{
+      display:inline-block;
+      text-decoration:none;
+      background:linear-gradient(135deg,#a61919,#cf3535);
+      color:#fff;
+      padding:13px 18px;
+      border-radius:16px;
+      font-weight:800;
+      box-shadow:0 10px 24px rgba(166,25,25,.22);
+    }
+    .btn-light{
+      background:#f4e5e5;
+      color:#981818;
+      box-shadow:none;
+    }
+
+    .hero-card,
+    .intro-box,
+    .card,
+    .split-image,
+    .download-box{
+      background:#fff;
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:0 12px 28px rgba(40,18,18,.08);
+      border:1px solid rgba(166,25,25,.06);
+    }
+    .hero-image{
+      width:100%;
+      aspect-ratio:4/4;
+      object-fit:cover;
+    }
+
+    .intro{
+      padding:0 0 18px;
+    }
+    .intro-box{
+      padding:22px 24px;
+    }
+    .intro-box p{
+      margin:0;
+      color:#5d4a4a;
+      font-size:1.02rem;
+    }
+
+    .section{
+      padding:24px 0;
+    }
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    .card{
+      padding:24px;
+    }
+    .card p{
+      margin:0;
+      color:#604d4d;
+    }
+    .icon{
+      width:44px;
+      height:44px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:#f8e3e3;
+      color:#b42020;
+      font-weight:800;
+      margin-bottom:14px;
+      font-size:1rem;
+    }
+
+    .split{
+      padding:24px 0;
+    }
+    .split-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+      align-items:center;
+    }
+    .split-image img{
+      width:100%;
+      aspect-ratio:4/3;
+      object-fit:cover;
+    }
+    .split-copy{
+      padding:4px;
+    }
+    .list{
+      margin:0;
+      padding-left:20px;
+      color:#5d4a4a;
+    }
+    .list li{
+      margin-bottom:10px;
+    }
+    .note{
+      margin-top:14px;
+      color:#725f5f;
+    }
+
+    .download{
+      padding:26px 0 46px;
+    }
+    .download-box{
+      padding:34px 24px;
+      text-align:center;
+      background:linear-gradient(180deg,#fff 0%,#fff7f7 100%);
+    }
+    .download-box p{
+      max-width:720px;
+      margin:0 auto 18px;
+      color:#5c4949;
+    }
+    .download-btn{
+      display:inline-block;
+      text-decoration:none;
+      background:linear-gradient(135deg,#991818,#cf3535);
+      color:#fff;
+      padding:15px 24px;
+      border-radius:18px;
+      font-weight:800;
+      box-shadow:0 12px 28px rgba(166,25,25,.24);
+    }
+
+    @media (max-width:900px){
+      .hero-grid,
+      .split-grid,
+      .cards{
+        grid-template-columns:1fr;
+      }
+      .hero-image,
+      .split-image img{
+        aspect-ratio:4/3;
+      }
+      .reverse-mobile .split-image{
+        order:-1;
+      }
+    }
+
+    @media (max-width:640px){
+      .header-inner{
+        flex-direction:column;
+        align-items:flex-start;
+        justify-content:center;
+        padding:12px 0;
+      }
+      .btn,
+      .download-btn{
+        width:100%;
+        text-align:center;
+      }
+      .card,
+      .intro-box,
+      .download-box{
+        padding:20px;
+      }
+    }
+  </style>
 </head>
-<body class="siete-body">
-  <header class="siete-header">
-    <div class="siete-container siete-header-inner">
-      <a href="index.html" class="siete-brand">RAIAN</a>
-      <nav class="siete-nav">
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">RAIAN</a>
+      <nav class="nav">
         <a href="index.html">Inicio</a>
         <a href="7nudos.html" class="active">7 nudos</a>
         <a href="turmalina.html">Turmalina</a>
@@ -20,104 +282,93 @@
   </header>
 
   <main>
-    <section class="siete-hero">
-      <div class="siete-container siete-hero-grid">
-        <div class="siete-hero-copy">
-          <span class="siete-eyebrow">Guía de producto</span>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Guía de producto</span>
           <h1>Pulsera de los 7 Nudos</h1>
-          <p class="siete-lead">
+          <p class="lead">
             Un amuleto cargado de simbolismo, intención y protección, pensado para acompañarte
             cada día como recordatorio de fuerza, calma y buena energía.
           </p>
 
-          <div class="siete-hero-actions">
-            <a href="#significado" class="siete-btn">Descubrir su significado</a>
-            <a href="#pdf" class="siete-btn siete-btn-light">Ver guía completa</a>
+          <div class="hero-actions">
+            <a href="#significado" class="btn">Descubrir su significado</a>
+            <a href="#pdf" class="btn btn-light">Ver guía completa</a>
           </div>
         </div>
 
-        <div class="siete-hero-card">
-          <img src="img/7nudos-hero.jpg" alt="Pulsera de los 7 nudos RAIAN" class="siete-hero-image">
+        <div class="hero-card">
+          <img src="img/7nudos-hero.jpg" alt="Pulsera de los 7 nudos RAIAN" class="hero-image">
         </div>
       </div>
     </section>
 
-    <section class="siete-intro">
-      <div class="siete-container">
-        <div class="siete-intro-box">
+    <section class="intro">
+      <div class="container">
+        <div class="intro-box">
           <p>
-            La pulsera de los 7 nudos se asocia tradicionalmente con la protección, la intención
-            personal y el deseo de atraer equilibrio y buena fortuna. Muchas personas la llevan
-            como símbolo de conexión interior y como recordatorio diario de aquello que quieren
-            reforzar en su vida.
+            La pulsera de los 7 nudos se asocia tradicionalmente con la protección,
+            la intención personal y el deseo de atraer equilibrio y buena fortuna.
+            Muchas personas la llevan como símbolo de conexión interior y como recordatorio
+            diario de aquello que quieren reforzar en su vida.
           </p>
         </div>
       </div>
     </section>
 
-    <section class="siete-section" id="significado">
-      <div class="siete-container">
-        <div class="siete-section-head">
-          <span class="siete-eyebrow">Simbolismo</span>
-          <h2>Qué representa la pulsera de los 7 nudos</h2>
-        </div>
+    <section class="section" id="significado">
+      <div class="container">
+        <span class="eyebrow">Simbolismo</span>
+        <h2>Qué representa la pulsera de los 7 nudos</h2>
 
-        <div class="siete-cards">
-          <article class="siete-card">
-            <div class="siete-icon">✦</div>
+        <div class="cards">
+          <article class="card">
+            <div class="icon">✦</div>
             <h3>Protección</h3>
-            <p>
-              Se utiliza como amuleto simbólico frente a energías negativas y como recordatorio
-              de seguridad interior.
-            </p>
+            <p>Se utiliza como amuleto simbólico frente a energías negativas y como recordatorio de seguridad interior.</p>
           </article>
 
-          <article class="siete-card">
-            <div class="siete-icon">❤</div>
+          <article class="card">
+            <div class="icon">❤</div>
             <h3>Intención</h3>
-            <p>
-              Cada nudo representa una unión con tus deseos, objetivos o pensamientos más importantes.
-            </p>
+            <p>Cada nudo puede representar una unión con tus deseos, pensamientos y objetivos más importantes.</p>
           </article>
 
-          <article class="siete-card">
-            <div class="siete-icon">☾</div>
+          <article class="card">
+            <div class="icon">☾</div>
             <h3>Equilibrio</h3>
-            <p>
-              Muchas personas la asocian con calma, arraigo y una sensación de armonía en el día a día.
-            </p>
+            <p>Muchas personas la relacionan con calma, arraigo y una sensación de armonía en el día a día.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="siete-split">
-      <div class="siete-container siete-split-grid">
-        <div class="siete-split-image">
-          <img src="img/7nudos-simbolo.jpg" alt="Simbolismo de la pulsera de 7 nudos" class="siete-image">
+    <section class="split">
+      <div class="container split-grid">
+        <div class="split-image">
+          <img src="img/7nudos-simbolo.jpg" alt="Simbolismo de la pulsera de 7 nudos">
         </div>
 
-        <div class="siete-split-copy">
-          <span class="siete-eyebrow">Cómo utilizarla</span>
+        <div class="split-copy">
+          <span class="eyebrow">Cómo utilizarla</span>
           <h2>Llévala con intención</h2>
-          <ol class="siete-list">
+          <ol class="list">
             <li>Colócatela de forma cómoda en la muñeca.</li>
             <li>Hazlo con una intención personal o un deseo claro en mente.</li>
             <li>Úsala como recordatorio diario de protección, fuerza y propósito.</li>
           </ol>
-          <p class="siete-note">
-            Puedes llevarla a diario como complemento personal o como amuleto con significado especial.
-          </p>
+          <p class="note">Puedes llevarla a diario como complemento personal o como amuleto con significado especial.</p>
         </div>
       </div>
     </section>
 
-    <section class="siete-split siete-split-alt">
-      <div class="siete-container siete-split-grid siete-reverse-mobile">
-        <div class="siete-split-copy">
-          <span class="siete-eyebrow">Cuidados</span>
+    <section class="split">
+      <div class="container split-grid reverse-mobile">
+        <div class="split-copy">
+          <span class="eyebrow">Cuidados</span>
           <h2>Cómo mantenerla en buen estado</h2>
-          <ul class="siete-list">
+          <ul class="list">
             <li>Evita tirones fuertes o enganches.</li>
             <li>Guárdala en un lugar seco cuando no la uses.</li>
             <li>Evita perfumes o productos agresivos sobre el hilo o las piezas.</li>
@@ -125,22 +376,21 @@
           </ul>
         </div>
 
-        <div class="siete-split-image">
-          <img src="img/7nudos-cuidado.jpg" alt="Cuidados de la pulsera de 7 nudos" class="siete-image">
+        <div class="split-image">
+          <img src="img/7nudos-cuidado.jpg" alt="Cuidados de la pulsera de 7 nudos">
         </div>
       </div>
     </section>
 
-    <section class="siete-download" id="pdf">
-      <div class="siete-container">
-        <div class="siete-download-box">
-          <span class="siete-eyebrow">Guía completa</span>
+    <section class="download" id="pdf">
+      <div class="container">
+        <div class="download-box">
+          <span class="eyebrow">Guía completa</span>
           <h2>Descárgala aquí</h2>
           <p>
-            Si quieres conservar toda la información y tenerla siempre a mano, puedes abrir
-            la guía completa en PDF desde este botón.
+            Si quieres conservar toda la información y tenerla siempre a mano, abre la guía completa en PDF desde este botón.
           </p>
-          <a class="siete-download-btn" href="pdf/pulsera-7-nudos-guia.pdf" target="_blank" rel="noopener">
+          <a class="download-btn" href="pdf/pulsera-7-nudos-guia.pdf" target="_blank" rel="noopener">
             Descargar guía PDF
           </a>
         </div>
