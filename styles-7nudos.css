@@ -38,10 +38,13 @@ img{
 
 .brand{
   color:#a61919;
-  font-weight:800;
-  letter-spacing:.18em;
-  font-size:1rem;
+  font-weight:900;
+  letter-spacing:.22em;
+  font-size:1.05rem;
   text-transform:uppercase;
+  text-align:center;
+  line-height:1;
+
 }
 
 .hero{
