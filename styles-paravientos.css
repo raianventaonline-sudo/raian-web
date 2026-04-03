@@ -209,4 +209,20 @@ h2{
   .prep-box{
     padding:20px;
   }
+}.brand-logo{
+  max-height:42px;
+  width:auto;
+  display:block;
+}
+
+.menu-icon{
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#ece5dc;
+  color:#1f1b18;
+  font-size:1.2rem;
+  margin-bottom:14px;
 }
