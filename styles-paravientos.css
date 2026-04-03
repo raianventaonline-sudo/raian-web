@@ -88,29 +88,23 @@ h2{
   max-width:58ch;
 }
 
-.hero-card,
-.intro-box,
-.menu-card,
-.prep-box{
-  background:rgba(255,255,255,.82);
-  border-radius:24px;
-  overflow:hidden;
-  box-shadow:0 12px 28px rgba(31,27,24,.07);
-  border:1px solid rgba(31,27,24,.05);
-  .hero-card{
+.hero-card{
   display:flex;
   align-items:center;
   justify-content:center;
-  min-height:320px;
+  min-height:unset;
   background:linear-gradient(180deg,#fffdfa 0%, #f7f2eb 100%);
+  padding:14px;
 }
 
 .hero-image{
   width:100%;
-  max-height:420px;
+  height:auto;
+  max-height:360px;
   object-fit:contain;
-  background:#fff;
-  padding:18px;
+  background:transparent;
+  padding:0;
+
 }
 
 .intro{
