@@ -4,140 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>RAIAN | Paravientos</title>
-  <meta name="description" content="Guía visual e información del paravientos RAIAN">
-  <style>
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:"Segoe UI",Arial,sans-serif;
-      background:linear-gradient(180deg,#faf7f2 0%,#f2ece3 100%);
-      color:#1f1b18;
-      line-height:1.6;
-    }
-    .container{
-      width:min(1000px, calc(100% - 28px));
-      margin:0 auto;
-    }
-    .header{
-      position:sticky;
-      top:0;
-      z-index:20;
-      background:rgba(250,247,242,.92);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid rgba(31,27,24,.06);
-    }
-    .header-inner{
-      min-height:82px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-    .brand{
-      color:#1f1b18;
-      font-weight:900;
-      letter-spacing:.22em;
-      font-size:1.05rem;
-      text-transform:uppercase;
-      text-align:center;
-      line-height:1;
-    }
-    .hero{
-      padding:42px 0 26px;
-    }
-    .eyebrow{
-      display:inline-block;
-      font-size:.78rem;
-      text-transform:uppercase;
-      letter-spacing:.16em;
-      color:#7c7063;
-      font-weight:800;
-      margin-bottom:10px;
-    }
-    h1{
-      margin:0 0 14px;
-      font-size:clamp(2.1rem,5vw,4rem);
-      line-height:1.02;
-      letter-spacing:-.03em;
-      color:#1f1b18;
-    }
-    h2{
-      margin:0 0 12px;
-      font-size:clamp(1.45rem,2vw,2rem);
-      line-height:1.12;
-      color:#1f1b18;
-    }
-    .lead{
-      font-size:1.08rem;
-      color:#4f4841;
-      margin:0;
-      max-width:58ch;
-    }
-    .hero-card,
-    .info-box,
-    .card,
-    .final-box{
-      background:rgba(255,255,255,.8);
-      border-radius:24px;
-      overflow:hidden;
-      box-shadow:0 12px 28px rgba(31,27,24,.07);
-      border:1px solid rgba(31,27,24,.05);
-    }
-    .hero-card{
-      margin-top:22px;
-      min-height:260px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:28px;
-      text-align:center;
-      color:#6a6056;
-    }
-    .section{
-      padding:24px 0;
-    }
-    .info-box,
-    .final-box{
-      padding:24px;
-    }
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-    }
-    .card{
-      padding:22px;
-    }
-    .card h3{
-      margin:0 0 10px;
-      font-size:1.05rem;
-      color:#1f1b18;
-    }
-    .card p,
-    .info-box p,
-    .final-box p{
-      margin:0;
-      color:#5a5149;
-    }
-    .icon{
-      width:42px;
-      height:42px;
-      border-radius:50%;
-      display:grid;
-      place-items:center;
-      background:#ece5dc;
-      color:#1f1b18;
-      font-weight:800;
-      margin-bottom:14px;
-    }
-    .final{
-      padding:24px 0 46px;
-    }
-    @media (max-width:900px){
-      .cards{
-        grid-template-columns:1fr;
-      }
-    }
-  </style>
+  <meta name="description" content="Guía del paravientos RAIAN">
+  <link rel="stylesheet" href="styles-paravientos.css">
 </head>
 <body>
   <header class="header">
@@ -148,53 +16,56 @@
 
   <main>
     <section class="hero">
-      <div class="container">
-        <span class="eyebrow">Guía de producto</span>
-        <h1>Paravientos</h1>
-        <p class="lead">
-          Aquí podrás mostrar instrucciones, montaje, consejos de uso y cualquier información
-          útil para que el cliente aproveche mejor su producto.
-        </p>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Guía de producto</span>
+          <h1>Paravientos</h1>
+          <p class="lead">
+            Todo lo que necesitas para aprovechar mejor tu paravientos:
+            montaje, consejos de uso y una sección de recetas para sacar más partido a cada salida.
+          </p>
+        </div>
 
         <div class="hero-card">
-          <div>
-            <strong>Contenido en preparación</strong><br>
-            Puedes dejar esta página ya creada y mejorarla más adelante con imágenes,
-            instrucciones o un carrusel visual.
-          </div>
+          <img src="img/paravientos-hero.jpg" alt="Paravientos RAIAN" class="hero-image">
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="intro">
       <div class="container">
-        <div class="cards">
-          <article class="card">
-            <div class="icon">1</div>
-            <h3>Montaje</h3>
-            <p>Aquí podrás explicar paso a paso cómo colocarlo correctamente.</p>
-          </article>
-
-          <article class="card">
-            <div class="icon">2</div>
-            <h3>Uso</h3>
-            <p>Aquí podrás añadir recomendaciones para aprovecharlo mejor.</p>
-          </article>
-
-          <article class="card">
-            <div class="icon">3</div>
-            <h3>Cuidados</h3>
-            <p>Aquí podrás dejar consejos de limpieza, guardado o mantenimiento.</p>
-          </article>
+        <div class="intro-box">
+          <p>
+            Hemos preparado esta guía para que tengas a mano la información más útil de tu producto.
+            Elige la sección que quieras consultar.
+          </p>
         </div>
       </div>
     </section>
 
-    <section class="final">
+    <section class="menu-section">
       <div class="container">
-        <div class="final-box">
-          <span class="eyebrow">RAIAN</span>
-          <h2>Gracias por elegir tu paravientos</h2>
+        <div class="menu-grid">
+          <a href="paravientos-instrucciones.html" class="menu-card">
+            <div class="menu-icon">1</div>
+            <h2>Instrucciones de uso</h2>
+            <p>Accede a la guía básica de montaje y utilización.</p>
+            <span class="menu-link">Entrar</span>
+          </a>
+
+          <a href="paravientos-consejos.html" class="menu-card">
+            <div class="menu-icon">2</div>
+            <h2>Consejos</h2>
+            <p>Trucos y recomendaciones para usarlo mejor en el día a día.</p>
+            <span class="menu-link">Entrar</span>
+          </a>
+
+          <a href="paravientos-recetario.html" class="menu-card">
+            <div class="menu-icon">3</div>
+            <h2>Recetario</h2>
+            <p>Ideas y recetas para disfrutar todavía más de tus salidas.</p>
+            <span class="menu-link">Entrar</span>
+          </a>
         </div>
       </div>
     </section>
