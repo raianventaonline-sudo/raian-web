@@ -101,8 +101,10 @@ h2{
 
 .hero-image{
   width:100%;
-  aspect-ratio:4/3;
-  object-fit:cover;
+  max-height:420px;
+  object-fit:contain;
+  background:#fff;
+  padding:18px;
 }
 
 .intro{
