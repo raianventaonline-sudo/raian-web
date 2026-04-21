@@ -1,0 +1,150 @@
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  font-family:"Segoe UI",Arial,sans-serif;
+  background:linear-gradient(180deg,#faf7f2 0%, #f2ece3 100%);
+  color:#1f1b18;
+  line-height:1.6;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+.container{
+  width:min(1120px, calc(100% - 28px));
+  margin:0 auto;
+}
+
+.header{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:rgba(250,247,242,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(31,27,24,.06);
+}
+
+.header-inner{
+  min-height:82px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.brand-logo{
+  max-height:42px;
+  width:auto;
+  display:block;
+}
+
+.hero{
+  padding:52px 0 24px;
+}
+
+.hero-inner{
+  text-align:center;
+  max-width:760px;
+}
+
+.eyebrow{
+  display:inline-block;
+  font-size:.78rem;
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  color:#7c7063;
+  font-weight:800;
+  margin-bottom:10px;
+}
+
+h1{
+  margin:0 0 14px;
+  font-size:clamp(2.2rem,5vw,4rem);
+  line-height:1.02;
+  letter-spacing:-.03em;
+  color:#1f1b18;
+}
+
+h2{
+  margin:0 0 10px;
+  font-size:1.45rem;
+  line-height:1.15;
+  color:#1f1b18;
+}
+
+.lead{
+  font-size:1.08rem;
+  color:#4f4841;
+  margin:0 auto;
+  max-width:58ch;
+}
+
+.options-section{
+  padding:24px 0 46px;
+}
+
+.options-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+
+.option-card{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+  background:linear-gradient(180deg,#ffffff 0%, #faf6f0 100%);
+  border-radius:24px;
+  padding:28px 24px;
+  box-shadow:0 12px 28px rgba(31,27,24,.07);
+  border:1px solid rgba(31,27,24,.05);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+
+.option-card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 16px 32px rgba(31,27,24,.1);
+}
+
+.option-icon{
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#ece5dc;
+  color:#1f1b18;
+  font-size:1.35rem;
+  margin-bottom:16px;
+}
+
+.option-card p{
+  margin:0 0 16px;
+  color:#5a5149;
+}
+
+.option-link{
+  display:inline-block;
+  text-decoration:none;
+  background:linear-gradient(135deg,#1f1b18,#4a433c);
+  color:#fff;
+  padding:11px 16px;
+  border-radius:14px;
+  font-weight:800;
+  font-size:.95rem;
+}
+
+@media (max-width:900px){
+  .options-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width:640px){
+  .option-card{
+    padding:22px 20px;
+  }
+}
