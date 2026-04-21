@@ -1,17 +1,403 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>RAIAN | Tiras mixtas</title>
-  <meta name="description" content="Guía de producto de las tiras mixtas RAIAN">
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tiras Mixtas | RAIAN</title>
+  <style>
+    :root {
+      --bg: #f6f4ef;
+      --card: rgba(255,255,255,0.85);
+      --text: #1f1f1f;
+      --muted: #6f6a60;
+      --line: rgba(31,31,31,0.08);
+      --shadow: 0 18px 50px rgba(0,0,0,0.08);
+      --shadow-hover: 0 24px 60px rgba(0,0,0,0.12);
+      --accent: #b89d72;
+      --accent-dark: #8d7450;
+      --radius: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(184,157,114,0.10), transparent 28%),
+        radial-gradient(circle at top right, rgba(184,157,114,0.08), transparent 22%),
+        linear-gradient(180deg, #fbfaf7 0%, var(--bg) 100%);
+      min-height: 100vh;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 56px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 8px 0 24px;
+    }
+
+    .logo-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.25s ease;
+    }
+
+    .logo-link:hover {
+      transform: translateY(-2px);
+    }
+
+    .logo {
+      max-width: 180px;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 28px 16px 18px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid rgba(184,157,114,0.28);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.72);
+      color: var(--accent-dark);
+      font-size: 0.86rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      margin-bottom: 18px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.08;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      max-width: 760px;
+      margin: 0 auto 14px;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 1.8vw, 1.12rem);
+      line-height: 1.65;
+      color: var(--muted);
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .selector {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 38px;
+    }
+
+    .option-card {
+      position: relative;
+      overflow: hidden;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 30px;
+      min-height: 340px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+      backdrop-filter: blur(8px);
+      isolation: isolate;
+    }
+
+    .option-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(184,157,114,0.10), rgba(255,255,255,0) 55%);
+      z-index: -1;
+    }
+
+    .option-card::after {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      right: -40px;
+      top: -40px;
+      background: radial-gradient(circle, rgba(184,157,114,0.18), transparent 70%);
+      z-index: -1;
+    }
+
+    .option-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(184,157,114,0.24);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .icon-badge {
+      width: 62px;
+      height: 62px;
+      border-radius: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(184,157,114,0.20), rgba(255,255,255,0.95));
+      border: 1px solid rgba(184,157,114,0.16);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
+      flex-shrink: 0;
+    }
+
+    .icon-badge svg {
+      width: 30px;
+      height: 30px;
+      stroke: var(--accent-dark);
+    }
+
+    .mini-label {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      margin-bottom: 12px;
+    }
+
+    .option-card h2 {
+      font-size: clamp(1.5rem, 2.2vw, 2rem);
+      line-height: 1.1;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .option-card p {
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 1rem;
+      max-width: 40ch;
+    }
+
+    .card-points {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin: 26px 0 26px;
+    }
+
+    .card-points li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #38342d;
+      font-size: 0.98rem;
+    }
+
+    .card-points li::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      flex-shrink: 0;
+    }
+
+    .card-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 18px;
+      border-radius: 16px;
+      background: #ffffff;
+      border: 1px solid rgba(31,31,31,0.08);
+      font-weight: 700;
+      width: fit-content;
+      transition: all 0.25s ease;
+    }
+
+    .option-card:hover .card-cta {
+      border-color: rgba(184,157,114,0.28);
+      background: #fffdf9;
+    }
+
+    .card-cta svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 32px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      padding: 0 16px;
+    }
+
+    @media (max-width: 820px) {
+      .selector {
+        grid-template-columns: 1fr;
+      }
+
+      .option-card {
+        min-height: auto;
+      }
+
+      .page {
+        width: min(100% - 22px, 1180px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding-top: 18px;
+      }
+
+      .option-card {
+        padding: 22px;
+        border-radius: 20px;
+      }
+
+      .card-top {
+        gap: 14px;
+      }
+
+      .icon-badge {
+        width: 54px;
+        height: 54px;
+        border-radius: 16px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <main class="container" style="padding:40px 0;">
-    <span class="eyebrow">RAIAN</span>
-    <h1>Tiras mixtas</h1>
-    <p class="lead">Contenido en preparación.</p>
-  </main>
+  <!-- Sustituye estos 3 valores por los definitivos -->
+  <!-- 1) src del logo -->
+  <!-- 2) href de las tiras nasales -->
+  <!-- 3) href de las tiras bucales -->
+
+  <div class="page">
+    <header class="topbar">
+      <a class="logo-link" href="/" aria-label="Ir a la página principal de RAIAN">
+        <img src="/assets/logo-raian.png" alt="Logo RAIAN" class="logo" />
+      </a>
+    </header>
+
+    <section class="hero">
+      <span class="eyebrow">RAIAN · Descanso y bienestar</span>
+      <h1>Elige la opción que mejor se adapta a tu descanso</h1>
+      <p>
+        Descubre nuestras soluciones específicas para mejorar la respiración y el descanso.
+        Selecciona entre tiras nasales o tiras bucales para ir directamente a la opción que buscas.
+      </p>
+    </section>
+
+    <main class="selector">
+      <a class="option-card" href="https://raian.es/tiras-nasales.html" aria-label="Ir a la página de tiras nasales">
+        <div>
+          <div class="card-top">
+            <div>
+              <span class="mini-label">Opción 01</span>
+              <h2>Tiras nasales</h2>
+              <p>
+                Diseñadas para favorecer una respiración más cómoda y una sensación de mayor apertura nasal durante el descanso.
+              </p>
+            </div>
+            <div class="icon-badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8 4c-1.5 3.5-2.2 5.8-2.2 8.3 0 3.8 2.6 7.7 6.2 7.7s6.2-3.9 6.2-7.7C18.2 9.8 17.5 7.5 16 4" />
+                <path d="M9.3 10.7c.8.5 1.6.7 2.7.7s1.9-.2 2.7-.7" />
+              </svg>
+            </div>
+          </div>
+
+          <ul class="card-points">
+            <li>Enfoque específico para la zona nasal</li>
+            <li>Acceso rápido a información y compra</li>
+            <li>Presentación limpia y visual</li>
+          </ul>
+        </div>
+
+        <span class="card-cta">
+          Ver tiras nasales
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14"></path>
+            <path d="M13 5l7 7-7 7"></path>
+          </svg>
+        </span>
+      </a>
+
+      <a class="option-card" href="https://TU-ENLACE-TIRAS-BUCALES.com" aria-label="Ir a la página de tiras bucales">
+        <div>
+          <div class="card-top">
+            <div>
+              <span class="mini-label">Opción 02</span>
+              <h2>Tiras bucales</h2>
+              <p>
+                Una alternativa enfocada en acompañar una rutina de descanso más ordenada y una experiencia nocturna más cómoda.
+              </p>
+            </div>
+            <div class="icon-badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 10.5c0-2.6 2.2-4.5 5-4.5h4c2.8 0 5 1.9 5 4.5v2.5c0 2.6-2.2 5-5 5h-4c-2.8 0-5-2.4-5-5v-2.5z" />
+                <path d="M8.5 12h7" />
+              </svg>
+            </div>
+          </div>
+
+          <ul class="card-points">
+            <li>Acceso directo a la categoría bucal</li>
+            <li>Navegación clara y sin distracciones</li>
+            <li>Diseño coherente con marca premium</li>
+          </ul>
+        </div>
+
+        <span class="card-cta">
+          Ver tiras bucales
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14"></path>
+            <path d="M13 5l7 7-7 7"></path>
+          </svg>
+        </span>
+      </a>
+    </main>
+
+    <p class="footer-note">
+      Soluciones pensadas para ayudarte a encontrar la opción adecuada según tu necesidad.
+    </p>
+  </div>
 </body>
 </html>
