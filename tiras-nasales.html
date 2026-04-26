@@ -4,14 +4,158 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>RAIAN | Tiras nasales</title>
-  <meta name="description" content="Guía de producto de las tiras nasales RAIAN">
-  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Guía visual de uso de las tiras nasales RAIAN">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+
+  <style>
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:"Segoe UI",Arial,sans-serif;
+      background:linear-gradient(180deg,#faf7f2 0%,#f3ede4 100%);
+      color:#1f1b18;
+    }
+
+    .page{
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      padding:18px 12px 26px;
+    }
+
+    .logo{
+      margin-bottom:8px;
+      font-weight:900;
+      letter-spacing:.22em;
+      font-size:1rem;
+      text-transform:uppercase;
+      color:#1f1b18;
+    }
+
+    .hint{
+      margin:0 0 14px;
+      font-size:.82rem;
+      color:rgba(31,27,24,.62);
+      text-align:center;
+    }
+
+    .swiper{
+      width:100%;
+      max-width:430px;
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:0 14px 34px rgba(31,27,24,.12);
+      background:#fff;
+    }
+
+    .swiper-slide{
+      aspect-ratio:9/16;
+      background:#fff;
+    }
+
+    .swiper-slide img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .swiper-pagination{
+      position:relative;
+      margin-top:14px;
+    }
+
+    .swiper-pagination-bullet{
+      background:#1f1b18;
+      opacity:.25;
+    }
+
+    .swiper-pagination-bullet-active{
+      opacity:1;
+    }
+  </style>
 </head>
+
 <body>
-  <main class="container" style="padding:40px 0;">
-    <span class="eyebrow">RAIAN</span>
-    <h1>Tiras nasales</h1>
-    <p class="lead">Contenido en preparación.</p>
+  <main class="page">
+    <div class="logo">RAIAN</div>
+    <p class="hint">Desliza para ver la guía completa</p>
+
+    <div class="swiper">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+          <img src="img/nasales-slide-1.png" alt="Tiras nasales RAIAN - portada" loading="eager">
+        </div>
+
+        <div class="swiper-slide">
+          <img src="img/nasales-slide-2.png" alt="Tiras nasales RAIAN - presentación" loading="lazy">
+        </div>
+
+        <div class="swiper-slide">
+          <img src="img/nasales-slide-3.png" alt="Tiras nasales RAIAN - cómo usar" loading="lazy">
+        </div>
+
+        <div class="swiper-slide">
+          <img src="img/nasales-slide-4.png" alt="Tiras nasales RAIAN - pasos de aplicación" loading="lazy">
+        </div>
+
+        <div class="swiper-slide">
+          <img src="img/nasales-slide-5.png" alt="Tiras nasales RAIAN - consejos antes de usar" loading="lazy">
+        </div>
+
+        <div class="swiper-slide">
+          <img src="img/nasales-slide-6.png" alt="Tiras nasales RAIAN - retirada de la tira" loading="lazy">
+        </div>
+
+        <div class="swiper-slide">
+          <img src="img/nasales-slide-7.png" alt="Tiras nasales RAIAN - recomendaciones de uso" loading="lazy">
+        </div>
+
+        <div class="swiper-slide">
+          <img src="img/nasales-slide-8.png" alt="Tiras nasales RAIAN - errores frecuentes" loading="lazy">
+        </div>
+
+        <div class="swiper-slide">
+          <img src="img/nasales-slide-9.png" alt="Tiras nasales RAIAN - preguntas frecuentes" loading="lazy">
+        </div>
+
+        <div class="swiper-slide">
+          <img src="img/nasales-slide-10.png" alt="Tiras nasales RAIAN - cuidado y advertencias" loading="lazy">
+        </div>
+
+        <div class="swiper-slide">
+          <img src="img/nasales-slide-11.png" alt="Tiras nasales RAIAN - mensaje de marca" loading="lazy">
+        </div>
+
+        <div class="swiper-slide">
+          <img src="img/nasales-slide-12.png" alt="Tiras nasales RAIAN - cierre" loading="lazy">
+        </div>
+
+      </div>
+    </div>
+
+    <div class="swiper-pagination"></div>
   </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+  <script>
+    new Swiper('.swiper', {
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
+      spaceBetween: 0,
+      grabCursor: true,
+      keyboard: {
+        enabled: true
+      }
+    });
+  </script>
 </body>
 </html>
