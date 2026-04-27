@@ -175,60 +175,173 @@
       margin: 0 auto;
     }
 
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-      margin-top: 26px;
-    }
+   .gallery-wrap {
+  position: relative;
+  margin-top: 26px;
+}
 
-    .gallery-item {
-      border: none;
-      background: transparent;
-      cursor: pointer;
-      padding: 0;
-      border-radius: var(--radio);
-      overflow: hidden;
-      box-shadow: 0 14px 34px rgba(8, 42, 99, 0.12);
-      position: relative;
-      aspect-ratio: 1 / 1;
-    }
+.swipe-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-bottom: 14px;
+  color: var(--azul-2);
+  font-size: 15px;
+  font-weight: 800;
+  animation: hintMove 1.4s ease-in-out infinite;
+}
 
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-      transition: transform 0.35s ease, filter 0.35s ease;
-    }
+@keyframes hintMove {
+  0%, 100% {
+    transform: translateX(0);
+    opacity: 0.75;
+  }
+  50% {
+    transform: translateX(8px);
+    opacity: 1;
+  }
+}
 
-    .gallery-item::after {
-      content: "Ver imagen";
-      position: absolute;
-      left: 12px;
-      right: 12px;
-      bottom: 12px;
-      text-align: center;
-      padding: 10px 12px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--azul);
-      background: rgba(255,255,255,0.88);
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 0.25s ease, transform 0.25s ease;
-    }
+.gallery {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 18px;
+  padding: 8px 18px 24px;
+  margin-left: -18px;
+  margin-right: -18px;
+  -webkit-overflow-scrolling: touch;
+}
 
-    .gallery-item:hover img {
-      transform: scale(1.045);
-      filter: brightness(0.95);
-    }
+.gallery::-webkit-scrollbar {
+  height: 8px;
+}
 
-    .gallery-item:hover::after {
-      opacity: 1;
-      transform: translateY(0);
-    }
+.gallery::-webkit-scrollbar-track {
+  background: rgba(8, 42, 99, 0.08);
+  border-radius: 999px;
+}
+
+.gallery::-webkit-scrollbar-thumb {
+  background: rgba(8, 42, 99, 0.34);
+  border-radius: 999px;
+}
+
+.gallery-item {
+  flex: 0 0 min(82vw, 390px);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  border-radius: var(--radio);
+  overflow: hidden;
+  box-shadow: 0 14px 34px rgba(8, 42, 99, 0.12);
+  position: relative;
+  aspect-ratio: 9 / 16;
+  scroll-snap-align: center;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.gallery-item::after {
+  content: "Toca para ampliar";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  text-align: center;
+  padding: 10px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--azul);
+  background: rgba(255,255,255,0.9);
+  opacity: 1;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.025);
+  filter: brightness(0.96);
+}
+
+.amazon-final {
+  flex: 0 0 min(82vw, 390px);
+  scroll-snap-align: center;
+  background: linear-gradient(135deg, #082a63 0%, #0d3b82 100%);
+  border-radius: 30px;
+  padding: 34px 24px;
+  text-align: center;
+  color: white;
+  box-shadow: var(--sombra);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: min(145vw, 690px);
+}
+
+.amazon-final h3 {
+  font-size: clamp(26px, 4vw, 42px);
+  letter-spacing: -1px;
+  margin-bottom: 10px;
+}
+
+.amazon-final p {
+  max-width: 680px;
+  margin: 0 auto 22px;
+  color: rgba(255,255,255,0.82);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.amazon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 999px;
+  background: white;
+  color: var(--azul);
+  font-weight: 900;
+  padding: 15px 24px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.amazon-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(0,0,0,0.22);
+}
+
+@media (min-width: 900px) {
+  .gallery-item,
+  .amazon-final {
+    flex-basis: 360px;
+  }
+}
+
+@media (max-width: 520px) {
+  .gallery {
+    gap: 14px;
+    padding-left: 14px;
+    padding-right: 14px;
+    margin-left: -14px;
+    margin-right: -14px;
+  }
+
+  .gallery-item,
+  .amazon-final {
+    flex-basis: 84vw;
+  }
+}
 
     .amazon-final {
       grid-column: 1 / -1;
@@ -574,9 +687,16 @@
       </p>
     </section>
 
-    <section class="gallery" aria-label="Galería de imágenes de tiras bucales RAIAN" id="gallery">
-      <!-- Las imágenes se cargan automáticamente desde el JavaScript -->
-    </section>
+   <div class="gallery-wrap">
+  <div class="swipe-hint">
+    <span>Desliza para ver más</span>
+    <span>→</span>
+  </div>
+
+  <section class="gallery" aria-label="Galería de imágenes de tiras bucales RAIAN" id="gallery">
+    <!-- Las imágenes se cargan automáticamente desde el JavaScript -->
+  </section>
+</div>
 
     <section class="info">
       <div class="info-box">
