@@ -587,7 +587,165 @@
       line-height:1.55;
       text-align:center;
     }
+.touch-section{
+  padding:42px 0;
+}
 
+.touch-box{
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  gap:24px;
+  align-items:center;
+  background:
+    radial-gradient(circle at top right,rgba(15,118,110,.14),transparent 34%),
+    linear-gradient(135deg,#ffffff 0%,#eefcf9 100%);
+  border:1px solid rgba(15,118,110,.14);
+  border-radius:34px;
+  padding:32px;
+  box-shadow:var(--shadow);
+}
+
+.touch-visual{
+  display:grid;
+  place-items:center;
+  min-height:260px;
+  background:linear-gradient(135deg,var(--stone) 0%,var(--stone-3) 100%);
+  border-radius:28px;
+  color:white;
+  position:relative;
+  overflow:hidden;
+}
+
+.touch-visual:before{
+  content:"";
+  position:absolute;
+  width:230px;
+  height:230px;
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
+  right:-80px;
+  top:-80px;
+}
+
+.touch-beads{
+  position:relative;
+  z-index:1;
+  display:flex;
+  gap:10px;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  max-width:260px;
+}
+
+.touch-bead{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:radial-gradient(circle at 30% 25%,#4b5563 0%,#111827 55%,#030712 100%);
+  box-shadow:0 8px 18px rgba(0,0,0,.28);
+}
+
+.touch-hand{
+  position:relative;
+  z-index:1;
+  margin-top:18px;
+  font-size:15px;
+  color:rgba(255,255,255,.82);
+  text-align:center;
+  line-height:1.45;
+}
+
+.touch-copy h2{
+  margin-bottom:14px;
+}
+
+.touch-copy p{
+  color:var(--muted);
+  line-height:1.7;
+  font-size:17px;
+  margin-bottom:14px;
+}
+
+.touch-points{
+  display:grid;
+  gap:12px;
+  margin-top:18px;
+}
+
+.touch-point{
+  display:grid;
+  grid-template-columns:42px 1fr;
+  gap:12px;
+  align-items:start;
+  background:white;
+  border:1px solid rgba(15,118,110,.12);
+  border-radius:18px;
+  padding:14px;
+}
+
+.touch-point-icon{
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:rgba(15,118,110,.09);
+  color:var(--emerald);
+  font-weight:900;
+}
+
+.touch-point strong{
+  display:block;
+  margin-bottom:3px;
+  color:var(--stone-3);
+}
+
+.touch-point span{
+  display:block;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.45;
+}
+
+.extra-meaning{
+  padding:42px 0;
+}
+
+.extra-meaning-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+  margin-top:24px;
+}
+
+.meaning-card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:28px;
+  padding:26px;
+  box-shadow:var(--shadow-soft);
+  text-align:left;
+}
+
+.meaning-card h3{
+  font-size:22px;
+  margin-bottom:10px;
+  color:var(--stone-3);
+}
+
+.meaning-card p{
+  color:var(--muted);
+  line-height:1.65;
+  font-size:15px;
+}
+
+@media(max-width:900px){
+  .touch-box,
+  .extra-meaning-grid{
+    grid-template-columns:1fr;
+  }
+}
     @media(max-width:980px){
       .cards{
         grid-template-columns:repeat(2,1fr);
@@ -712,7 +870,103 @@
         </div>
       </div>
     </section>
+<section class="touch-section">
+  <div class="container">
+    <div class="touch-box">
 
+      <div class="touch-visual" aria-hidden="true">
+        <div>
+          <div class="touch-beads">
+            <span class="touch-bead"></span>
+            <span class="touch-bead"></span>
+            <span class="touch-bead"></span>
+            <span class="touch-bead"></span>
+            <span class="touch-bead"></span>
+            <span class="touch-bead"></span>
+            <span class="touch-bead"></span>
+            <span class="touch-bead"></span>
+            <span class="touch-bead"></span>
+          </div>
+          <div class="touch-hand">
+            Tócala, muévela entre los dedos<br>
+            y vuelve al momento presente
+          </div>
+        </div>
+      </div>
+
+      <div class="touch-copy">
+        <span class="eyebrow">Gesto antiestrés</span>
+
+        <h2>Quizá ya te has dado cuenta: apetece tocar sus cuentas</h2>
+
+        <p>
+          Es muy habitual coger una pulsera de cuentas con la mano, mover las bolitas,
+          contarlas una a una o simplemente sentir su textura entre los dedos.
+          Ese gesto repetitivo puede convertirse en una pequeña pausa sensorial durante el día.
+        </p>
+
+        <p>
+          En distintas culturas existen objetos parecidos, como las cuentas de preocupación
+          o las malas de meditación, que se manipulan suavemente para acompañar momentos
+          de calma, respiración o concentración.
+        </p>
+
+        <div class="touch-points">
+          <div class="touch-point">
+            <div class="touch-point-icon">1</div>
+            <div>
+              <strong>Cuenta las bolitas</strong>
+              <span>Pasa de una cuenta a otra lentamente mientras respiras con calma.</span>
+            </div>
+          </div>
+
+          <div class="touch-point">
+            <div class="touch-point-icon">2</div>
+            <div>
+              <strong>Úsala como ancla</strong>
+              <span>Cuando la notes en la muñeca, vuelve a tu intención: calma, foco o protección simbólica.</span>
+            </div>
+          </div>
+
+          <div class="touch-point">
+            <div class="touch-point-icon">3</div>
+            <div>
+              <strong>Haz una pausa breve</strong>
+              <span>No hace falta ningún ritual complejo: 20 segundos de atención ya cambian la sensación del momento.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="extra-meaning">
+  <div class="container">
+    <span class="eyebrow">Más significado</span>
+    <h2>Por qué muchas personas eligen la turmalina negra</h2>
+
+    <div class="extra-meaning-grid">
+      <article class="meaning-card">
+        <h3>Color negro: presencia y sobriedad</h3>
+        <p>
+          Su estética oscura hace que combine fácilmente con el día a día, pero también refuerza
+          esa sensación de piedra de arraigo, fuerza y estabilidad. Es una pieza discreta, pero con presencia.
+        </p>
+      </article>
+
+      <article class="meaning-card">
+        <h3>Un recordatorio de límites personales</h3>
+        <p>
+          Dentro del enfoque espiritual, la turmalina negra suele relacionarse con protección,
+          límites y limpieza simbólica. Por eso muchas personas la usan como recordatorio de cuidar
+          su energía y no cargar con todo lo externo.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
     <section class="section" id="propiedades">
       <div class="container">
         <span class="eyebrow">Enfoque espiritual</span>
