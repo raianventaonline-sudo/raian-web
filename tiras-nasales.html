@@ -1,175 +1,1064 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>RAIAN | Tiras nasales</title>
-  <meta name="description" content="Guía visual de uso de las tiras nasales RAIAN">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+  <title>Tiras nasales RAIAN | Guía de uso</title>
+  <meta name="description" content="Guía visual de uso de las tiras nasales RAIAN. Consejos, advertencias, galería de producto y acceso directo a Amazon." />
 
   <style>
-    *{box-sizing:border-box}
-
-    body{
-      margin:0;
-      font-family:"Segoe UI",Arial,sans-serif;
-      background:linear-gradient(180deg,#faf7f2 0%,#f3ede4 100%);
-      color:#1f1b18;
+    :root {
+      --azul: #082a63;
+      --azul-2: #0d3b82;
+      --azul-claro: #eaf4ff;
+      --celeste: #64a8ff;
+      --blanco: #ffffff;
+      --gris: #5f6f89;
+      --gris-claro: #f5f8fc;
+      --borde: rgba(8, 42, 99, 0.14);
+      --sombra: 0 18px 45px rgba(8, 42, 99, 0.12);
+      --radio: 24px;
     }
 
-    .page{
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      padding:18px 12px 26px;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    .logo{
-      margin-bottom:8px;
-      font-weight:900;
-      letter-spacing:.22em;
-      font-size:1rem;
-      text-transform:uppercase;
-      color:#1f1b18;
+    html {
+      scroll-behavior: smooth;
     }
 
-    .hint{
-      margin:0 0 14px;
-      font-size:.82rem;
-      color:rgba(31,27,24,.62);
-      text-align:center;
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--azul);
+      background:
+        radial-gradient(circle at top left, rgba(100, 168, 255, 0.22), transparent 32%),
+        radial-gradient(circle at bottom right, rgba(100, 168, 255, 0.18), transparent 30%),
+        linear-gradient(180deg, #ffffff 0%, #f4f9ff 100%);
+      min-height: 100vh;
     }
 
-    .swiper{
-      width:100%;
-      max-width:430px;
-      border-radius:24px;
-      overflow:hidden;
-      box-shadow:0 14px 34px rgba(31,27,24,.12);
-      background:#fff;
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 48px;
     }
 
-    .swiper-slide{
-      aspect-ratio:9/16;
-      background:#fff;
+    header {
+      text-align: center;
+      padding: 18px 0 28px;
     }
 
-    .swiper-slide img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
+    .logo-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 18px;
     }
 
-    .swiper-pagination{
-      position:relative;
-      margin-top:14px;
+    .logo-img {
+      width: min(190px, 52vw);
+      height: auto;
+      display: block;
     }
 
-    .swiper-pagination-bullet{
-      background:#1f1b18;
-      opacity:.25;
+    .hero {
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid var(--borde);
+      border-radius: 34px;
+      box-shadow: var(--sombra);
+      padding: 42px 34px;
+      overflow: hidden;
+      position: relative;
     }
 
-    .swiper-pagination-bullet-active{
-      opacity:1;
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      border-radius: 999px;
+      background: rgba(100, 168, 255, 0.14);
+      top: -170px;
+      right: -120px;
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--azul-claro);
+      color: var(--azul-2);
+      border: 1px solid rgba(100, 168, 255, 0.28);
+      padding: 9px 15px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: clamp(36px, 6vw, 72px);
+      line-height: 0.96;
+      letter-spacing: -2.5px;
+      margin-bottom: 18px;
+      color: var(--azul);
+      max-width: 980px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .subtitle {
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: clamp(17px, 2.1vw, 22px);
+      line-height: 1.55;
+      color: var(--gris);
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 34px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.9);
+      border: 1px solid var(--borde);
+      border-radius: 20px;
+      padding: 18px;
+      text-align: left;
+    }
+
+    .hero-card strong {
+      display: block;
+      font-size: 17px;
+      margin-bottom: 6px;
+      color: var(--azul);
+    }
+
+    .hero-card span {
+      display: block;
+      font-size: 14px;
+      line-height: 1.45;
+      color: var(--gris);
+    }
+
+    .section-title {
+      text-align: center;
+      margin: 48px 0 22px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(28px, 4vw, 44px);
+      letter-spacing: -1.4px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: var(--gris);
+      font-size: 17px;
+      line-height: 1.5;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .gallery-wrap {
+      position: relative;
+      margin-top: 26px;
+    }
+
+    .swipe-hint {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      margin-bottom: 14px;
+      color: var(--azul-2);
+      font-size: 15px;
+      font-weight: 800;
+      animation: hintMove 1.4s ease-in-out infinite;
+    }
+
+    @keyframes hintMove {
+      0%, 100% {
+        transform: translateX(0);
+        opacity: 0.75;
+      }
+      50% {
+        transform: translateX(8px);
+        opacity: 1;
+      }
+    }
+
+    .gallery {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scroll-padding-left: 18px;
+      padding: 8px 18px 24px;
+      margin-left: -18px;
+      margin-right: -18px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .gallery::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .gallery::-webkit-scrollbar-track {
+      background: rgba(8, 42, 99, 0.08);
+      border-radius: 999px;
+    }
+
+    .gallery::-webkit-scrollbar-thumb {
+      background: rgba(8, 42, 99, 0.34);
+      border-radius: 999px;
+    }
+
+    .gallery-item {
+      flex: 0 0 min(82vw, 390px);
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      padding: 0;
+      border-radius: var(--radio);
+      overflow: hidden;
+      box-shadow: 0 14px 34px rgba(8, 42, 99, 0.12);
+      position: relative;
+      aspect-ratio: 9 / 16;
+      scroll-snap-align: center;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.35s ease, filter 0.35s ease;
+    }
+
+    .gallery-item::after {
+      content: "Toca para ampliar";
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      text-align: center;
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--azul);
+      background: rgba(255,255,255,0.9);
+      opacity: 1;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.025);
+      filter: brightness(0.96);
+    }
+
+    .amazon-final {
+      flex: 0 0 min(82vw, 390px);
+      scroll-snap-align: center;
+      background: linear-gradient(135deg, #082a63 0%, #0d3b82 100%);
+      border-radius: 30px;
+      padding: 34px 24px;
+      text-align: center;
+      color: white;
+      box-shadow: var(--sombra);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: min(145vw, 690px);
+    }
+
+    .amazon-final h3 {
+      font-size: clamp(26px, 4vw, 42px);
+      letter-spacing: -1px;
+      margin-bottom: 10px;
+    }
+
+    .amazon-final p {
+      max-width: 680px;
+      margin: 0 auto 22px;
+      color: rgba(255,255,255,0.82);
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .amazon-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border-radius: 999px;
+      background: white;
+      color: var(--azul);
+      font-weight: 900;
+      padding: 15px 24px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .amazon-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px rgba(0,0,0,0.22);
+    }
+
+    .review-buy-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-top: 34px;
+    }
+
+    .review-card,
+    .buy-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 30px;
+      padding: 30px 26px;
+      box-shadow: var(--sombra);
+    }
+
+    .review-card {
+      background: linear-gradient(135deg, #ffffff 0%, #eef7ff 100%);
+      border: 1px solid rgba(8, 42, 99, 0.12);
+      color: var(--azul);
+    }
+
+    .review-card::before {
+      content: "★";
+      position: absolute;
+      right: 22px;
+      top: 12px;
+      font-size: 96px;
+      line-height: 1;
+      color: rgba(8, 42, 99, 0.06);
+      pointer-events: none;
+    }
+
+    .review-icon,
+    .buy-icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      margin-bottom: 18px;
+      font-size: 28px;
+    }
+
+    .review-icon {
+      background: var(--azul-claro);
+    }
+
+    .buy-icon {
+      background: rgba(255,255,255,0.16);
+    }
+
+    .review-card h2,
+    .buy-card h2 {
+      font-size: clamp(26px, 3.5vw, 38px);
+      letter-spacing: -1px;
+      line-height: 1.05;
+      margin-bottom: 12px;
+    }
+
+    .review-card p,
+    .buy-card p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .review-card p {
+      color: var(--gris);
+    }
+
+    .review-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      border: 1px solid rgba(8, 42, 99, 0.12);
+      color: var(--azul-2);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .buy-card {
+      background: linear-gradient(135deg, #082a63 0%, #0d3b82 100%);
+      color: white;
+    }
+
+    .buy-card::before {
+      content: "";
+      position: absolute;
+      width: 230px;
+      height: 230px;
+      right: -90px;
+      top: -90px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .buy-card p {
+      color: rgba(255,255,255,0.84);
+    }
+
+    .buy-card .amazon-btn {
+      background: white;
+      color: var(--azul);
+    }
+
+    .info {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 22px;
+      margin-top: 46px;
+      align-items: stretch;
+    }
+
+    .info-box {
+      background: rgba(255,255,255,0.86);
+      border: 1px solid var(--borde);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: 0 14px 34px rgba(8, 42, 99, 0.08);
+    }
+
+    .info-box h2 {
+      font-size: 30px;
+      letter-spacing: -0.8px;
+      margin-bottom: 14px;
+    }
+
+    .info-box p {
+      color: var(--gris);
+      line-height: 1.65;
+      font-size: 16px;
+      margin-bottom: 14px;
+    }
+
+    .steps {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 14px;
+      background: var(--gris-claro);
+      border: 1px solid var(--borde);
+      border-radius: 18px;
+    }
+
+    .step-number {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--azul);
+      color: white;
+      font-weight: 800;
+    }
+
+    .step strong {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--azul);
+    }
+
+    .step span {
+      display: block;
+      color: var(--gris);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .notice {
+      margin-top: 34px;
+      background: #fff;
+      border: 1px solid rgba(8, 42, 99, 0.12);
+      border-radius: 24px;
+      padding: 20px;
+      color: var(--gris);
+      font-size: 14px;
+      line-height: 1.55;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--gris);
+      font-size: 14px;
+      padding: 34px 0 0;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 18, 43, 0.88);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 22px;
+      z-index: 999;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      position: relative;
+      width: min(980px, 100%);
+      max-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .lightbox img {
+      max-width: 100%;
+      max-height: 78vh;
+      border-radius: 22px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.34);
+      background: white;
+    }
+
+    .lightbox-close,
+    .lightbox-prev,
+    .lightbox-next {
+      position: absolute;
+      border: none;
+      background: rgba(255,255,255,0.92);
+      color: var(--azul);
+      cursor: pointer;
+      font-weight: 900;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.2);
+    }
+
+    .lightbox-close {
+      top: -16px;
+      right: -12px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      font-size: 24px;
+    }
+
+    .lightbox-prev,
+    .lightbox-next {
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 58px;
+      border-radius: 18px;
+      font-size: 34px;
+    }
+
+    .lightbox-prev {
+      left: -18px;
+    }
+
+    .lightbox-next {
+      right: -18px;
+    }
+
+    .lightbox-amazon {
+      display: none;
+      text-align: center;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .lightbox-amazon.active {
+      display: block;
+    }
+
+    .lightbox-amazon p {
+      color: white;
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+
+    .lightbox-amazon .amazon-btn {
+      background: white;
+      color: var(--azul);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (min-width: 900px) {
+      .gallery-item,
+      .amazon-final {
+        flex-basis: 360px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        padding: 34px 22px;
+      }
+
+      .hero-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .info {
+        grid-template-columns: 1fr;
+      }
+
+      .lightbox-prev {
+        left: 6px;
+      }
+
+      .lightbox-next {
+        right: 6px;
+      }
+
+      .lightbox-close {
+        top: 8px;
+        right: 8px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .review-buy-section {
+        grid-template-columns: 1fr;
+      }
+
+      .review-card,
+      .buy-card {
+        padding: 26px 22px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .page {
+        width: min(100% - 22px, 1180px);
+        padding-top: 20px;
+      }
+
+      .hero {
+        border-radius: 26px;
+      }
+
+      .gallery {
+        gap: 14px;
+        padding-left: 14px;
+        padding-right: 14px;
+        margin-left: -14px;
+        margin-right: -14px;
+      }
+
+      .gallery-item,
+      .amazon-final {
+        flex-basis: 84vw;
+      }
+
+      .info-box {
+        padding: 22px;
+      }
+
+      .lightbox img {
+        max-height: 70vh;
+      }
     }
   </style>
 </head>
 
 <body>
   <main class="page">
-    <div class="logo">RAIAN</div>
-    <p class="hint">Desliza para ver la guía completa</p>
 
-    <div class="swiper">
-      <div class="swiper-wrapper">
-
-        <div class="swiper-slide">
-          <img src="img/nasales-slide-1.png" alt="Tiras nasales RAIAN - portada" loading="eager">
-        </div>
-
-        <div class="swiper-slide">
-          <img src="img/nasales-slide-2.png" alt="Tiras nasales RAIAN - presentación" loading="lazy">
-        </div>
-
-        <div class="swiper-slide">
-          <img src="img/nasales-slide-3.png" alt="Tiras nasales RAIAN - cómo usar" loading="lazy">
-        </div>
-
-        <div class="swiper-slide">
-          <img src="img/nasales-slide-4.png" alt="Tiras nasales RAIAN - pasos de aplicación" loading="lazy">
-        </div>
-
-        <div class="swiper-slide">
-          <img src="img/nasales-slide-5.png" alt="Tiras nasales RAIAN - consejos antes de usar" loading="lazy">
-        </div>
-
-        <div class="swiper-slide">
-          <img src="img/nasales-slide-6.png" alt="Tiras nasales RAIAN - retirada de la tira" loading="lazy">
-        </div>
-
-        <div class="swiper-slide">
-          <img src="img/nasales-slide-7.png" alt="Tiras nasales RAIAN - recomendaciones de uso" loading="lazy">
-        </div>
-
-        <div class="swiper-slide">
-          <img src="img/nasales-slide-8.png" alt="Tiras nasales RAIAN - errores frecuentes" loading="lazy">
-        </div>
-
-        <div class="swiper-slide">
-          <img src="img/nasales-slide-9.png" alt="Tiras nasales RAIAN - preguntas frecuentes" loading="lazy">
-        </div>
-
-        <div class="swiper-slide">
-          <img src="img/nasales-slide-10.png" alt="Tiras nasales RAIAN - cuidado y advertencias" loading="lazy">
-        </div>
-
-        <div class="swiper-slide">
-          <img src="img/nasales-slide-11.png" alt="Tiras nasales RAIAN - mensaje de marca" loading="lazy">
-        </div>
-  <div class="swiper-slide">
-          <img src="img/nasales-slide-11a.png" alt="Tiras nasales RAIAN - fftf" loading="lazy">
-        </div>
-        <div class="swiper-slide">
-          <img src="img/nasales-slide-12.png" alt="Tiras nasales RAIAN - cierre" loading="lazy">
-        </div>
-
-          <div class="swiper-slide">
-          <img src="img/nasales-slide-13.png" alt="Tiras nasales RAIAN - ff" loading="lazy">
-        </div>
-<div class="swiper-slide">
-          <img src="img/nasales-slide-14.png" alt="Tiras nasales RAIAN - fff" loading="lazy">
-        </div>
-  <div class="swiper-slide">
-          <img src="img/nasales-slide-15.png" alt="Tiras nasales RAIAN - ffaa" loading="lazy">
-        </div>
-          <div class="swiper-slide">
-          <img src="img/nasales-slide-16.png" alt="Tiras nasales RAIAN - rrff" loading="lazy">
-        </div>
+    <header>
+      <div class="logo-wrap">
+        <img src="/img/logoraian.png" alt="Logo RAIAN" class="logo-img">
       </div>
+
+      <section class="hero">
+        <div class="eyebrow">Guía visual RAIAN</div>
+
+        <h1>Tiras nasales para una rutina más cómoda</h1>
+
+        <p class="subtitle">
+          Una ayuda externa, sencilla y sin medicamentos, pensada para favorecer una respiración nasal más cómoda en tu rutina de descanso, deporte o momentos de congestión nasal leve.
+        </p>
+
+        <div class="hero-cards">
+          <div class="hero-card">
+            <strong>Uso externo</strong>
+            <span>Se colocan sobre la nariz, sin introducir nada en las fosas nasales.</span>
+          </div>
+
+          <div class="hero-card">
+            <strong>Sin medicamentos</strong>
+            <span>Funcionan mediante una ligera tensión externa sobre la zona nasal.</span>
+          </div>
+
+          <div class="hero-card">
+            <strong>Fáciles de usar</strong>
+            <span>Limpia, seca, coloca centrada y retira lentamente al terminar.</span>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <section class="section-title">
+      <h2>Galería del producto</h2>
+      <p>
+        Desliza para ver la guía completa. Toca cualquier imagen para verla ampliada. Al llegar a la última imagen aparecerá la opción de compra en Amazon.
+      </p>
+    </section>
+
+    <div class="gallery-wrap">
+      <div class="swipe-hint">
+        <span>Desliza para ver más</span>
+        <span>→</span>
+      </div>
+
+      <section class="gallery" aria-label="Galería de imágenes de tiras nasales RAIAN" id="gallery">
+        <!-- Las imágenes se cargan automáticamente desde el JavaScript -->
+      </section>
     </div>
 
-    <div class="swiper-pagination"></div>
+    <section class="review-buy-section" aria-label="Reseña y compra en Amazon">
+
+      <div class="review-card">
+        <div class="review-icon">💬</div>
+
+        <h2>Tu opinión nos ayuda mucho</h2>
+
+        <p>
+          Si quieres compartir tu experiencia, puedes dedicar un minuto a dejar una reseña honesta en Amazon.
+          Para una pequeña marca española como RAIAN, nos ayuda más de lo que imaginas a seguir mejorando.
+        </p>
+
+        <div class="review-note">
+          Reseña libre, honesta y sin compromiso
+        </div>
+      </div>
+
+      <div class="buy-card">
+        <div class="buy-icon">🛒</div>
+
+        <h2>Compra aquí tus tiras nasales</h2>
+
+        <p>
+          Accede directamente al producto RAIAN en Amazon y tenlo siempre a mano cuando quieras repetir.
+        </p>
+
+        <a href="https://www.amazon.es/dp/B0GTJX6D7V/" class="amazon-btn" target="_blank" rel="noopener noreferrer">
+          Comprar en Amazon
+        </a>
+      </div>
+
+    </section>
+
+    <section class="info">
+      <div class="info-box">
+        <h2>Cómo usar las tiras nasales</h2>
+        <p>
+          Para mejorar el agarre, limpia y seca bien la zona antes de colocar la tira. Aplícala centrada sobre la nariz y presiona suavemente los extremos.
+        </p>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div>
+              <strong>Limpia y seca la piel</strong>
+              <span>Evita aplicar la tira sobre piel húmeda, grasa o con restos de crema.</span>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">2</div>
+            <div>
+              <strong>Colócala centrada</strong>
+              <span>Sitúala sobre la parte externa de la nariz, evitando colocarla demasiado alta o demasiado baja.</span>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">3</div>
+            <div>
+              <strong>Retírala lentamente</strong>
+              <span>Despega desde los extremos. Si está muy adherida, humedece la zona antes de retirarla.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <h2>Advertencias importantes</h2>
+        <p>
+          Uso externo. No utilizar sobre heridas, piel irritada, quemaduras o si notas molestias persistentes.
+        </p>
+        <p>
+          Suspende el uso si aparece irritación, picor intenso o reacción en la piel.
+        </p>
+        <p>
+          Este producto no está destinado a diagnosticar, tratar, curar ni prevenir enfermedades. En caso de problemas respiratorios, apnea del sueño diagnosticada o dudas médicas, consulta con un profesional.
+        </p>
+      </div>
+    </section>
+
+    <div class="notice">
+      RAIAN · Información de uso orientativa para el cliente. Conserva el producto en un lugar fresco, seco y fuera del alcance de los niños.
+    </div>
+
+    <footer>
+      © RAIAN · Valencia, España
+    </footer>
+
   </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar imagen">×</button>
+      <button class="lightbox-prev" id="lightboxPrev" aria-label="Imagen anterior">‹</button>
+
+      <img id="lightboxImg" src="" alt="Imagen ampliada de tiras nasales RAIAN">
+
+      <div class="lightbox-amazon" id="lightboxAmazon">
+        <p>Has llegado al final de la guía visual.</p>
+        <a href="https://www.amazon.es/dp/B0GTJX6D7V/" class="amazon-btn" target="_blank" rel="noopener noreferrer">
+          Comprar en Amazon
+        </a>
+      </div>
+
+      <button class="lightbox-next" id="lightboxNext" aria-label="Imagen siguiente">›</button>
+    </div>
+  </div>
 
   <script>
-    new Swiper('.swiper', {
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true
+    const amazonUrl = "https://www.amazon.es/dp/B0GTJX6D7V/";
+
+    const images = [
+      {
+        src: "/img/nasales-slide-1.png",
+        alt: "Tiras nasales RAIAN - portada",
+        loading: "eager"
       },
-      spaceBetween: 0,
-      grabCursor: true,
-      keyboard: {
-        enabled: true
+      {
+        src: "/img/nasales-slide-2.png",
+        alt: "Tiras nasales RAIAN - presentación",
+        loading: "lazy"
+      },
+      {
+        src: "/img/nasales-slide-3.png",
+        alt: "Tiras nasales RAIAN - cómo usar",
+        loading: "lazy"
+      },
+      {
+        src: "/img/nasales-slide-4.png",
+        alt: "Tiras nasales RAIAN - pasos de aplicación",
+        loading: "lazy"
+      },
+      {
+        src: "/img/nasales-slide-5.png",
+        alt: "Tiras nasales RAIAN - consejos antes de usar",
+        loading: "lazy"
+      },
+      {
+        src: "/img/nasales-slide-6.png",
+        alt: "Tiras nasales RAIAN - retirada de la tira",
+        loading: "lazy"
+      },
+      {
+        src: "/img/nasales-slide-7.png",
+        alt: "Tiras nasales RAIAN - recomendaciones de uso",
+        loading: "lazy"
+      },
+      {
+        src: "/img/nasales-slide-8.png",
+        alt: "Tiras nasales RAIAN - errores frecuentes",
+        loading: "lazy"
+      },
+      {
+        src: "/img/nasales-slide-9.png",
+        alt: "Tiras nasales RAIAN - preguntas frecuentes",
+        loading: "lazy"
+      },
+      {
+        src: "/img/nasales-slide-10.png",
+        alt: "Tiras nasales RAIAN - cuidado y advertencias",
+        loading: "lazy"
+      },
+      {
+        src: "/img/nasales-slide-11.png",
+        alt: "Tiras nasales RAIAN - mensaje de marca",
+        loading: "lazy"
+      },
+      {
+        src: "/img/nasales-slide-11a.png",
+        alt: "Tiras nasales RAIAN - contenido adicional",
+        loading: "lazy"
+      },
+      {
+        src: "/img/nasales-slide-12.png",
+        alt: "Tiras nasales RAIAN - cierre",
+        loading: "lazy"
+      },
+      {
+        src: "/img/nasales-slide-13.png",
+        alt: "Tiras nasales RAIAN - información adicional",
+        loading: "lazy"
+      },
+      {
+        src: "/img/nasales-slide-14.png",
+        alt: "Tiras nasales RAIAN - consejos de uso",
+        loading: "lazy"
+      },
+      {
+        src: "/img/nasales-slide-15.png",
+        alt: "Tiras nasales RAIAN - tranquilidad",
+        loading: "lazy"
+      },
+      {
+        src: "/img/nasales-slide-16.png",
+        alt: "Tiras nasales RAIAN - información final",
+        loading: "lazy"
+      }
+    ];
+
+    const gallery = document.getElementById("gallery");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const lightboxAmazon = document.getElementById("lightboxAmazon");
+    const closeBtn = document.getElementById("lightboxClose");
+    const prevBtn = document.getElementById("lightboxPrev");
+    const nextBtn = document.getElementById("lightboxNext");
+
+    let currentIndex = 0;
+
+    function buildGallery() {
+      images.forEach((image, index) => {
+        const button = document.createElement("button");
+        button.className = "gallery-item";
+        button.type = "button";
+        button.dataset.index = index;
+
+        const img = document.createElement("img");
+        img.src = image.src;
+        img.alt = image.alt;
+        img.loading = image.loading;
+
+        button.appendChild(img);
+        button.addEventListener("click", () => openLightbox(index));
+
+        gallery.appendChild(button);
+      });
+
+      const amazonBlock = document.createElement("div");
+      amazonBlock.className = "amazon-final";
+      amazonBlock.innerHTML = `
+        <h3>¿Quieres comprar las tiras nasales RAIAN?</h3>
+        <p>
+          Después de revisar la guía visual, puedes acceder directamente al producto en Amazon.
+        </p>
+        <a href="${amazonUrl}" class="amazon-btn" target="_blank" rel="noopener noreferrer">
+          Comprar en Amazon
+        </a>
+      `;
+
+      gallery.appendChild(amazonBlock);
+    }
+
+    function updateAmazonButton() {
+      if (currentIndex === images.length - 1) {
+        lightboxAmazon.classList.add("active");
+      } else {
+        lightboxAmazon.classList.remove("active");
+      }
+    }
+
+    function openLightbox(index) {
+      currentIndex = index;
+      lightboxImg.src = images[currentIndex].src;
+      lightboxImg.alt = images[currentIndex].alt;
+      updateAmazonButton();
+      lightbox.classList.add("active");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("active");
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImg.src = "";
+      lightboxAmazon.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      lightboxImg.src = images[currentIndex].src;
+      lightboxImg.alt = images[currentIndex].alt;
+      updateAmazonButton();
+    }
+
+    function showNext() {
+      currentIndex = (currentIndex + 1) % images.length;
+      lightboxImg.src = images[currentIndex].src;
+      lightboxImg.alt = images[currentIndex].alt;
+      updateAmazonButton();
+    }
+
+    closeBtn.addEventListener("click", closeLightbox);
+    prevBtn.addEventListener("click", showPrev);
+    nextBtn.addEventListener("click", showNext);
+
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) {
+        closeLightbox();
       }
     });
+
+    document.addEventListener("keydown", (event) => {
+      if (!lightbox.classList.contains("active")) return;
+
+      if (event.key === "Escape") closeLightbox();
+      if (event.key === "ArrowLeft") showPrev();
+      if (event.key === "ArrowRight") showNext();
+    });
+
+    buildGallery();
   </script>
 </body>
 </html>
