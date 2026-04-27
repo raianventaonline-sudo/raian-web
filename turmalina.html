@@ -3,27 +3,687 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+
   <title>RAIAN | Pulsera Turmalina</title>
-  <meta name="description" content="Guía espiritual y de cuidado de la pulsera Turmalina de RAIAN">
-  <link rel="stylesheet" href="styles-turmalina.css">
+  <meta name="description" content="Guía espiritual, significado, uso y cuidado de la pulsera Turmalina RAIAN">
+
+  <style>
+    :root{
+      --stone:#111827;
+      --stone-2:#1f2937;
+      --stone-3:#030712;
+      --emerald:#0f766e;
+      --emerald-soft:#e6fffb;
+      --gold:#d5a84c;
+      --cream:#f8fafc;
+      --white:#ffffff;
+      --ink:#111827;
+      --muted:#64748b;
+      --border:rgba(15,23,42,.12);
+      --shadow:0 18px 44px rgba(15,23,42,.12);
+      --shadow-soft:0 12px 28px rgba(15,23,42,.08);
+      --radius:28px;
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at top left,rgba(15,118,110,.12),transparent 34%),
+        radial-gradient(circle at bottom right,rgba(213,168,76,.15),transparent 30%),
+        linear-gradient(180deg,#ffffff 0%,#f1f5f9 100%);
+      min-height:100vh;
+    }
+
+    .container{
+      width:min(1120px,calc(100% - 32px));
+      margin:0 auto;
+    }
+
+    .header{
+      position:relative;
+      z-index:1;
+      padding:24px 0 12px;
+      background:transparent;
+    }
+
+    .header-inner{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .brand-logo{
+      width:150px;
+      max-width:46vw;
+      height:auto;
+      display:block;
+      object-fit:contain;
+    }
+
+    .hero{
+      padding:20px 0 34px;
+    }
+
+    .hero-box{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:28px;
+      align-items:center;
+      background:
+        radial-gradient(circle at top right,rgba(15,118,110,.14),transparent 36%),
+        linear-gradient(135deg,rgba(255,255,255,.92) 0%,rgba(241,245,249,.94) 100%);
+      border:1px solid var(--border);
+      border-radius:36px;
+      padding:42px 34px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .hero-box:before{
+      content:"";
+      position:absolute;
+      width:360px;
+      height:360px;
+      right:-140px;
+      top:-160px;
+      border-radius:50%;
+      background:rgba(15,23,42,.07);
+      pointer-events:none;
+    }
+
+    .hero-copy,
+    .hero-card{
+      position:relative;
+      z-index:1;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:rgba(15,118,110,.09);
+      color:var(--emerald);
+      border:1px solid rgba(15,118,110,.16);
+      padding:9px 15px;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:800;
+      margin-bottom:18px;
+    }
+
+    h1{
+      font-size:clamp(40px,7vw,74px);
+      line-height:.95;
+      letter-spacing:-2.4px;
+      color:var(--stone-3);
+      margin-bottom:18px;
+    }
+
+    h2{
+      font-size:clamp(28px,4.3vw,46px);
+      line-height:1.05;
+      letter-spacing:-1.2px;
+      color:var(--stone-3);
+      margin-bottom:14px;
+    }
+
+    h3{
+      color:var(--ink);
+    }
+
+    .lead{
+      font-size:clamp(17px,2.1vw,22px);
+      line-height:1.55;
+      color:var(--muted);
+      max-width:680px;
+    }
+
+    .sublead{
+      margin-top:14px;
+      color:var(--muted);
+      font-size:17px;
+      line-height:1.6;
+      max-width:660px;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:28px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+      background:linear-gradient(135deg,var(--stone) 0%,var(--stone-3) 100%);
+      color:white;
+      font-weight:900;
+      padding:15px 22px;
+      border-radius:999px;
+      box-shadow:0 14px 28px rgba(15,23,42,.18);
+      transition:.2s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 18px 34px rgba(15,23,42,.24);
+    }
+
+    .btn-light{
+      background:white;
+      color:var(--stone-3);
+      border:1px solid var(--border);
+    }
+
+    .hero-card{
+      background:white;
+      border:1px solid var(--border);
+      border-radius:30px;
+      padding:16px;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .hero-card img,
+    .split-image img{
+      width:100%;
+      display:block;
+      border-radius:22px;
+      object-fit:cover;
+    }
+
+    .intro{
+      padding:20px 0 34px;
+    }
+
+    .intro-box{
+      background:white;
+      border:1px solid var(--border);
+      border-radius:30px;
+      padding:28px;
+      box-shadow:var(--shadow-soft);
+      text-align:center;
+    }
+
+    .intro-box p{
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.7;
+      max-width:920px;
+      margin:0 auto;
+    }
+
+    .section{
+      padding:42px 0;
+      text-align:center;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+      margin-top:24px;
+    }
+
+    .card{
+      background:rgba(255,255,255,.92);
+      border:1px solid var(--border);
+      border-radius:28px;
+      padding:24px;
+      box-shadow:var(--shadow-soft);
+      text-align:left;
+    }
+
+    .icon-img{
+      width:54px;
+      height:54px;
+      padding:12px;
+      display:block;
+      border-radius:18px;
+      background:rgba(15,118,110,.08);
+      margin-bottom:16px;
+      object-fit:contain;
+    }
+
+    .fallback-icon{
+      width:54px;
+      height:54px;
+      display:grid;
+      place-items:center;
+      border-radius:18px;
+      background:rgba(15,118,110,.08);
+      color:var(--emerald);
+      font-size:27px;
+      margin-bottom:16px;
+    }
+
+    .card h3{
+      font-size:21px;
+      margin-bottom:8px;
+    }
+
+    .card p{
+      color:var(--muted);
+      line-height:1.6;
+      font-size:15px;
+    }
+
+    .split{
+      padding:38px 0;
+    }
+
+    .split-grid{
+      display:grid;
+      grid-template-columns:.95fr 1.05fr;
+      gap:28px;
+      align-items:center;
+    }
+
+    .split-image,
+    .split-copy{
+      background:white;
+      border:1px solid var(--border);
+      border-radius:30px;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .split-image{
+      padding:16px;
+    }
+
+    .split-copy{
+      padding:30px;
+    }
+
+    .list{
+      display:grid;
+      gap:12px;
+      margin:18px 0;
+      padding-left:22px;
+      color:var(--muted);
+      line-height:1.55;
+    }
+
+    .note{
+      color:var(--stone-3);
+      background:rgba(15,118,110,.07);
+      border:1px solid rgba(15,118,110,.12);
+      border-radius:18px;
+      padding:15px;
+      line-height:1.55;
+      font-weight:700;
+    }
+
+    .ritual{
+      background:linear-gradient(135deg,rgba(15,23,42,.04),rgba(15,118,110,.07));
+      border-top:1px solid rgba(15,23,42,.08);
+      border-bottom:1px solid rgba(15,23,42,.08);
+    }
+
+    .ritual-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-top:24px;
+    }
+
+    .ritual-card{
+      background:white;
+      border:1px solid var(--border);
+      border-radius:28px;
+      padding:24px;
+      box-shadow:var(--shadow-soft);
+      text-align:left;
+    }
+
+    .step-number{
+      width:44px;
+      height:44px;
+      display:grid;
+      place-items:center;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--stone),var(--stone-3));
+      color:white;
+      font-weight:900;
+      margin-bottom:14px;
+    }
+
+    .ritual-card h3{
+      font-size:21px;
+      margin-bottom:8px;
+    }
+
+    .ritual-card p{
+      color:var(--muted);
+      line-height:1.6;
+      font-size:15px;
+    }
+
+    .faq-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+      margin-top:24px;
+    }
+
+    .faq-card{
+      background:white;
+      border:1px solid var(--border);
+      border-radius:26px;
+      padding:24px;
+      box-shadow:var(--shadow-soft);
+      text-align:left;
+    }
+
+    .faq-card h3{
+      font-size:21px;
+      margin-bottom:8px;
+      color:var(--stone-3);
+    }
+
+    .faq-card p{
+      color:var(--muted);
+      line-height:1.6;
+      font-size:15px;
+    }
+
+    .review-buy-section{
+      padding:44px 0 20px;
+    }
+
+    .review-buy-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+    }
+
+    .review-card,
+    .buy-card{
+      position:relative;
+      overflow:hidden;
+      border-radius:30px;
+      padding:30px 26px;
+      box-shadow:var(--shadow);
+      min-height:280px;
+    }
+
+    .review-card{
+      background:linear-gradient(135deg,#ffffff 0%,#eefcf9 100%);
+      border:1px solid rgba(15,118,110,.14);
+      color:var(--stone-3);
+    }
+
+    .review-card:before{
+      content:"★";
+      position:absolute;
+      right:22px;
+      top:12px;
+      font-size:96px;
+      line-height:1;
+      color:rgba(15,23,42,.06);
+      pointer-events:none;
+    }
+
+    .buy-card{
+      background:linear-gradient(135deg,var(--stone) 0%,var(--stone-3) 100%);
+      color:white;
+    }
+
+    .buy-card:before{
+      content:"";
+      position:absolute;
+      width:230px;
+      height:230px;
+      right:-90px;
+      top:-90px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+    }
+
+    .review-icon,
+    .buy-icon{
+      width:54px;
+      height:54px;
+      display:grid;
+      place-items:center;
+      border-radius:18px;
+      margin-bottom:18px;
+      font-size:28px;
+      position:relative;
+      z-index:1;
+    }
+
+    .review-icon{
+      background:rgba(15,118,110,.09);
+    }
+
+    .buy-icon{
+      background:rgba(255,255,255,.16);
+    }
+
+    .review-card h2,
+    .buy-card h2,
+    .review-card p,
+    .buy-card p,
+    .review-note,
+    .amazon-btn{
+      position:relative;
+      z-index:1;
+    }
+
+    .review-card h2,
+    .buy-card h2{
+      font-size:clamp(26px,3.5vw,38px);
+      line-height:1.05;
+      letter-spacing:-1px;
+      margin-bottom:12px;
+    }
+
+    .review-card p,
+    .buy-card p{
+      font-size:16px;
+      line-height:1.6;
+      margin-bottom:20px;
+    }
+
+    .review-card p{
+      color:var(--muted);
+    }
+
+    .buy-card p{
+      color:rgba(255,255,255,.86);
+    }
+
+    .review-note{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:white;
+      border:1px solid rgba(15,118,110,.14);
+      color:var(--stone-3);
+      padding:10px 14px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:800;
+    }
+
+    .amazon-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+      border-radius:999px;
+      background:white;
+      color:var(--stone-3);
+      font-weight:900;
+      padding:15px 24px;
+      box-shadow:0 12px 28px rgba(0,0,0,.18);
+      transition:.2s ease;
+    }
+
+    .amazon-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 16px 34px rgba(0,0,0,.22);
+    }
+
+    .final{
+      padding:42px 0;
+    }
+
+    .final-box{
+      text-align:center;
+      background:
+        radial-gradient(circle at top right,rgba(213,168,76,.22),transparent 30%),
+        linear-gradient(135deg,var(--stone-2) 0%,var(--stone-3) 100%);
+      color:white;
+      border-radius:34px;
+      padding:36px 26px;
+      box-shadow:0 28px 70px rgba(15,23,42,.22);
+    }
+
+    .final-box .eyebrow{
+      background:rgba(255,255,255,.12);
+      color:white;
+      border-color:rgba(255,255,255,.16);
+    }
+
+    .final-box h2{
+      color:white;
+    }
+
+    .final-box p{
+      color:rgba(255,255,255,.84);
+      max-width:740px;
+      margin:0 auto;
+      line-height:1.6;
+      font-size:17px;
+    }
+
+    .legal-note{
+      padding:0 0 38px;
+    }
+
+    .legal-note p{
+      color:var(--muted);
+      background:rgba(255,255,255,.82);
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:18px;
+      font-size:14px;
+      line-height:1.55;
+      text-align:center;
+    }
+
+    @media(max-width:980px){
+      .cards{
+        grid-template-columns:repeat(2,1fr);
+      }
+    }
+
+    @media(max-width:900px){
+      .hero-box,
+      .split-grid,
+      .review-buy-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero-copy{
+        text-align:center;
+      }
+
+      .hero-actions{
+        justify-content:center;
+      }
+
+      .ritual-grid,
+      .faq-grid{
+        grid-template-columns:1fr;
+      }
+
+      .reverse-mobile .split-copy{
+        order:1;
+      }
+
+      .reverse-mobile .split-image{
+        order:2;
+      }
+    }
+
+    @media(max-width:620px){
+      .cards{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:520px){
+      .container{
+        width:min(100% - 22px,1120px);
+      }
+
+      .brand-logo{
+        width:122px;
+      }
+
+      .hero-box{
+        padding:30px 20px;
+        border-radius:28px;
+      }
+
+      .intro-box,
+      .split-copy,
+      .review-card,
+      .buy-card,
+      .final-box,
+      .faq-card{
+        padding:24px 20px;
+      }
+
+      .hero-actions{
+        display:grid;
+      }
+
+      .btn,
+      .amazon-btn{
+        width:100%;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <header class="header">
     <div class="container header-inner">
-      <div class="brand">RAIAN</div>
+      <img src="img/logoraian.png" alt="Logo RAIAN" class="brand-logo">
     </div>
   </header>
 
   <main>
     <section class="hero">
-      <div class="container hero-grid">
+      <div class="container hero-box">
         <div class="hero-copy">
-          <span class="eyebrow">Guía de producto</span>
+          <span class="eyebrow">Guía de producto RAIAN</span>
+
           <h1>Pulsera Turmalina</h1>
+
           <p class="lead">
             Una pieza de presencia intensa y estética elegante, inspirada en la turmalina negra
             y en su simbolismo de protección, calma y arraigo interior.
           </p>
+
           <p class="sublead">
             Pensada para acompañarte en tu día a día como amuleto personal y como recordatorio
             de equilibrio, serenidad y fuerza interior.
@@ -31,12 +691,12 @@
 
           <div class="hero-actions">
             <a href="#propiedades" class="btn">Ver propiedades</a>
-            <a href="#ritual" class="btn btn-light">Cómo utilizarla</a>
+            <a href="#comprar" class="btn btn-light">Comprar en Amazon</a>
           </div>
         </div>
 
         <div class="hero-card">
-          <img src="img/turmalina-hero.jpg" alt="Pulsera Turmalina RAIAN" class="hero-image">
+          <img src="img/turmalina-hero.jpg" alt="Pulsera Turmalina RAIAN">
         </div>
       </div>
     </section>
@@ -46,8 +706,8 @@
         <div class="intro-box">
           <p>
             La turmalina negra se asocia tradicionalmente con la protección energética,
-            el arraigo y la limpieza de cargas densas del entorno. Muchas personas la eligen
-            como amuleto personal, como símbolo de calma y como gesto diario de reconexión con una misma.
+            el arraigo y la limpieza simbólica de cargas densas del entorno. Muchas personas la eligen
+            como amuleto personal, como símbolo de calma y como gesto diario de reconexión consigo mismas.
           </p>
         </div>
       </div>
@@ -63,7 +723,7 @@
             <img src="img/icon-proteccion.svg" alt="Protección" class="icon-img">
             <h3>Escudo energético</h3>
             <p>
-              Tradicionalmente se vincula con la protección frente a energías densas
+              Tradicionalmente se vincula con la protección simbólica frente a energías densas
               y ambientes emocionalmente cargados.
             </p>
           </article>
@@ -72,14 +732,14 @@
             <img src="img/icon-calma.svg" alt="Calma" class="icon-img">
             <h3>Calma interior</h3>
             <p>
-              Muchas personas la usan como apoyo simbólico para bajar revoluciones
+              Muchas personas la usan como recordatorio simbólico para bajar revoluciones
               y recuperar sensación de serenidad.
             </p>
           </article>
 
           <article class="card">
             <img src="img/icon-sueno.svg" alt="Descanso" class="icon-img">
-            <h3>Descanso y desconexión</h3>
+            <h3>Desconexión</h3>
             <p>
               Se integra a menudo en rutinas nocturnas o momentos de pausa
               para favorecer una sensación de descanso más tranquilo.
@@ -90,8 +750,7 @@
             <img src="img/icon-salud.svg" alt="Bienestar" class="icon-img">
             <h3>Bienestar y arraigo</h3>
             <p>
-              Se asocia con presencia, equilibrio y conexión con una misma
-              como recordatorio diario de autocuidado.
+              Se asocia con presencia, equilibrio y conexión interior como recordatorio diario de autocuidado.
             </p>
           </article>
         </div>
@@ -101,17 +760,19 @@
     <section class="split">
       <div class="container split-grid">
         <div class="split-image">
-          <img src="img/turmalina-uso.jpg" alt="Pulsera Turmalina en uso">
+          <img src="img/turmalina-uso.jpg" alt="Pulsera Turmalina RAIAN en uso">
         </div>
 
         <div class="split-copy">
           <span class="eyebrow">Cómo utilizarla</span>
           <h2>Llévala con intención</h2>
+
           <ol class="list">
             <li>Colócatela de forma cómoda en la muñeca.</li>
             <li>Hazlo con una intención clara: calma, protección, fuerza o equilibrio.</li>
             <li>Úsala a diario como accesorio con significado personal.</li>
           </ol>
+
           <p class="note">
             Más allá de lo estético, puede convertirse en un pequeño ritual diario de presencia y conexión.
           </p>
@@ -146,7 +807,7 @@
             <div class="step-number">3</div>
             <h3>Cierre del día</h3>
             <p>
-              Al retirarla, puedes hacerlo como gesto de pausa, descarga y vuelta a ti misma.
+              Al retirarla, puedes hacerlo como gesto de pausa, descarga simbólica y vuelta a ti.
             </p>
           </article>
         </div>
@@ -158,6 +819,7 @@
         <div class="split-copy">
           <span class="eyebrow">Cuidados</span>
           <h2>Cómo mantenerla en buen estado</h2>
+
           <ul class="list">
             <li>Evita golpes fuertes o tirones bruscos.</li>
             <li>Guárdala en un lugar seco cuando no la uses.</li>
@@ -168,7 +830,7 @@
         </div>
 
         <div class="split-image">
-          <img src="img/turmalina-cuidados.jpg" alt="Cuidados de la pulsera Turmalina">
+          <img src="img/turmalina-cuidados.jpg" alt="Cuidados de la pulsera Turmalina RAIAN">
         </div>
       </div>
     </section>
@@ -181,24 +843,68 @@
         <div class="faq-grid">
           <article class="faq-card">
             <h3>¿Puedo llevarla todos los días?</h3>
-            <p>Sí, está pensada como accesorio de uso diario y como amuleto personal de acompañamiento.</p>
+            <p>
+              Sí, está pensada como accesorio de uso diario y como amuleto personal de acompañamiento.
+            </p>
           </article>
 
           <article class="faq-card">
             <h3>¿Sirve como regalo?</h3>
-            <p>Sí, encaja muy bien como detalle con significado simbólico y presentación cuidada.</p>
+            <p>
+              Sí, encaja muy bien como detalle con significado simbólico y presentación cuidada.
+            </p>
           </article>
 
           <article class="faq-card">
             <h3>¿Tiene un enfoque espiritual?</h3>
-            <p>Sí. El contenido está planteado desde la tradición simbólica asociada a la turmalina negra.</p>
+            <p>
+              Sí. El contenido está planteado desde la tradición simbólica asociada a la turmalina negra.
+            </p>
           </article>
 
           <article class="faq-card">
             <h3>¿Necesita mucho mantenimiento?</h3>
-            <p>No. Solo un uso cuidadoso, limpieza suave y evitar golpes o productos agresivos.</p>
+            <p>
+              No. Solo un uso cuidadoso, limpieza suave y evitar golpes o productos agresivos.
+            </p>
           </article>
         </div>
+      </div>
+    </section>
+
+    <section class="review-buy-section" id="comprar">
+      <div class="container review-buy-grid">
+
+        <div class="review-card">
+          <div class="review-icon">💬</div>
+
+          <h2>Tu opinión nos ayuda mucho</h2>
+
+          <p>
+            Si quieres compartir tu experiencia, puedes dedicar un minuto a dejar una reseña honesta en Amazon.
+            Para una pequeña marca española como RAIAN, nos ayuda más de lo que imaginas a seguir mejorando.
+          </p>
+
+          <div class="review-note">
+            Reseña libre, honesta y sin compromiso
+          </div>
+        </div>
+
+        <div class="buy-card">
+          <div class="buy-icon">🛒</div>
+
+          <h2>Compra aquí tu pulsera Turmalina</h2>
+
+          <p>
+            Accede directamente al producto RAIAN en Amazon y tenlo siempre a mano cuando quieras repetir
+            o regalarla a alguien especial.
+          </p>
+
+          <a href="https://www.amazon.es/dp/B0GS74GKYP/" class="amazon-btn" target="_blank" rel="noopener noreferrer">
+            Comprar en Amazon
+          </a>
+        </div>
+
       </div>
     </section>
 
@@ -206,12 +912,23 @@
       <div class="container">
         <div class="final-box">
           <span class="eyebrow">RAIAN</span>
+
           <h2>Tu momento, tu intención, tu amuleto</h2>
+
           <p>
             Gracias por elegir RAIAN. Hemos preparado esta guía para que disfrutes tu pulsera
             Turmalina como una pieza especial, con presencia, significado y cuidado.
           </p>
         </div>
+      </div>
+    </section>
+
+    <section class="legal-note">
+      <div class="container">
+        <p>
+          La información sobre protección energética, limpieza simbólica, calma, arraigo o bienestar se presenta
+          como contenido simbólico, cultural y espiritual. No supone una garantía de resultados ni sustituye ningún consejo profesional.
+        </p>
       </div>
     </section>
   </main>
