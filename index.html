@@ -1,46 +1,893 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>RAIAN</title>
-  <meta name="description" content="Guías e información de productos RAIAN">
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RAIAN | Soluciones sencillas para el día a día</title>
+  <meta name="description" content="RAIAN desarrolla productos sencillos, cuidados y prácticos para acompañar pequeños momentos del día a día." />
+  <style>
+    :root {
+      --navy: #0b1f3a;
+      --blue: #1f5f9f;
+      --soft-blue: #eaf4fb;
+      --ice: #f7fbff;
+      --white: #ffffff;
+      --text: #172033;
+      --muted: #657286;
+      --border: rgba(11, 31, 58, 0.12);
+      --shadow: 0 24px 70px rgba(11, 31, 58, 0.12);
+      --radius: 28px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, #f6fbff 0%, #ffffff 45%, #f4f8fc 100%);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      overflow: hidden;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(247, 251, 255, 0.82);
+      border-bottom: 1px solid rgba(11, 31, 58, 0.08);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: var(--navy);
+    }
+
+    .brand img {
+      height: 42px;
+      width: auto;
+      display: block;
+    }
+
+    .brand-text {
+      font-size: 1.05rem;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .menu a {
+      display: inline-flex;
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      transition: 0.2s ease;
+    }
+
+    .menu a:hover {
+      background: var(--soft-blue);
+      color: var(--navy);
+    }
+
+    .hero {
+      position: relative;
+      padding: 92px 0 72px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -120px -160px auto auto;
+      width: 520px;
+      height: 520px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(31, 95, 159, 0.18), rgba(31, 95, 159, 0));
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 52px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--blue);
+      font-weight: 700;
+      font-size: 0.86rem;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--blue);
+    }
+
+    h1 {
+      font-size: clamp(2.45rem, 6vw, 5.4rem);
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+      color: var(--navy);
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      max-width: 620px;
+      font-size: clamp(1.03rem, 2vw, 1.22rem);
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .button-primary {
+      color: var(--white);
+      background: var(--navy);
+      box-shadow: 0 14px 30px rgba(11, 31, 58, 0.2);
+    }
+
+    .button-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 38px rgba(11, 31, 58, 0.25);
+    }
+
+    .button-secondary {
+      color: var(--navy);
+      background: var(--white);
+      border-color: var(--border);
+    }
+
+    .button-secondary:hover {
+      background: var(--soft-blue);
+    }
+
+    .hero-card {
+      position: relative;
+      min-height: 470px;
+      border-radius: 42px;
+      background:
+        radial-gradient(circle at 20% 15%, rgba(255, 255, 255, 0.95), transparent 30%),
+        linear-gradient(145deg, rgba(234, 244, 251, 0.9), rgba(255, 255, 255, 0.95));
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: var(--shadow);
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    .hero-card::before,
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      pointer-events: none;
+    }
+
+    .hero-card::before {
+      width: 280px;
+      height: 280px;
+      background: rgba(31, 95, 159, 0.11);
+      right: -70px;
+      top: -60px;
+    }
+
+    .hero-card::after {
+      width: 180px;
+      height: 180px;
+      background: rgba(11, 31, 58, 0.08);
+      left: -60px;
+      bottom: -40px;
+    }
+
+    .visual-logo {
+      position: relative;
+      z-index: 1;
+      width: 150px;
+      height: 150px;
+      border-radius: 36px;
+      background: var(--white);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 18px 42px rgba(11, 31, 58, 0.12);
+      margin: 0 auto;
+    }
+
+    .visual-logo img {
+      max-width: 112px;
+      max-height: 112px;
+      display: block;
+    }
+
+    .visual-logo span {
+      display: none;
+      font-size: 1.35rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      color: var(--navy);
+    }
+
+    .floating-panel {
+      position: relative;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 28px;
+      padding: 24px;
+      backdrop-filter: blur(12px);
+    }
+
+    .floating-panel strong {
+      display: block;
+      color: var(--navy);
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+
+    .floating-panel p {
+      color: var(--muted);
+      font-size: 0.96rem;
+      margin: 0;
+    }
+
+    section {
+      padding: 78px 0;
+    }
+
+    .section-title {
+      max-width: 760px;
+      margin-bottom: 34px;
+    }
+
+    .section-title span {
+      display: inline-block;
+      color: var(--blue);
+      font-size: 0.9rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      color: var(--navy);
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+      margin-bottom: 14px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: 0 16px 42px rgba(11, 31, 58, 0.06);
+    }
+
+    .card .icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 15px;
+      background: var(--soft-blue);
+      display: grid;
+      place-items: center;
+      color: var(--blue);
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      color: var(--navy);
+      font-size: 1.16rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .about-box {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .about-highlight {
+      border-radius: 34px;
+      background: linear-gradient(145deg, var(--navy), #123d6b);
+      color: var(--white);
+      padding: 34px;
+      min-height: 340px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      box-shadow: var(--shadow);
+    }
+
+    .about-highlight small {
+      color: rgba(255, 255, 255, 0.72);
+      text-transform: uppercase;
+      font-weight: 850;
+      letter-spacing: 0.12em;
+      margin-bottom: 12px;
+    }
+
+    .about-highlight h3 {
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+    }
+
+    .about-copy {
+      border-radius: 34px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 34px;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .about-copy ul {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .about-copy li {
+      display: flex;
+      gap: 12px;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .about-copy li::before {
+      content: "✓";
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      background: var(--soft-blue);
+      color: var(--blue);
+      display: inline-grid;
+      place-items: center;
+      flex: 0 0 24px;
+      font-size: 0.82rem;
+    }
+
+    .products-placeholder {
+      border-radius: 34px;
+      border: 1px dashed rgba(31, 95, 159, 0.35);
+      background: linear-gradient(145deg, rgba(234, 244, 251, 0.9), rgba(255, 255, 255, 0.9));
+      padding: 46px;
+      text-align: center;
+      box-shadow: 0 16px 42px rgba(11, 31, 58, 0.05);
+    }
+
+    .products-placeholder strong {
+      display: block;
+      color: var(--navy);
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+    }
+
+    .products-placeholder p {
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .contact-info {
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 34px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-info h3 {
+      font-size: 1.7rem;
+      margin-bottom: 12px;
+      letter-spacing: -0.035em;
+    }
+
+    .contact-info p {
+      color: rgba(255, 255, 255, 0.74);
+      margin-bottom: 24px;
+    }
+
+    .contact-row {
+      padding: 18px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .contact-row small {
+      display: block;
+      color: rgba(255, 255, 255, 0.55);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 850;
+      font-size: 0.74rem;
+    }
+
+    .contact-row a,
+    .contact-row span {
+      font-weight: 800;
+    }
+
+    .form-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 34px;
+      padding: 34px;
+      box-shadow: 0 16px 42px rgba(11, 31, 58, 0.06);
+    }
+
+    form {
+      display: grid;
+      gap: 16px;
+    }
+
+    .field-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    label {
+      display: grid;
+      gap: 7px;
+      color: var(--navy);
+      font-weight: 800;
+      font-size: 0.92rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 14px 16px;
+      font: inherit;
+      color: var(--text);
+      background: #fbfdff;
+      outline: none;
+      transition: 0.2s ease;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: rgba(31, 95, 159, 0.55);
+      box-shadow: 0 0 0 4px rgba(31, 95, 159, 0.08);
+      background: var(--white);
+    }
+
+    textarea {
+      min-height: 138px;
+      resize: vertical;
+    }
+
+    .privacy {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 500;
+    }
+
+    .privacy input {
+      width: 18px;
+      height: 18px;
+      margin-top: 3px;
+      flex: 0 0 auto;
+    }
+
+    .privacy a {
+      color: var(--blue);
+      font-weight: 800;
+    }
+
+    .footer {
+      padding: 38px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+    }
+
+    .footer-links a:hover {
+      color: var(--navy);
+    }
+
+    @media (max-width: 880px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 16px 0;
+      }
+
+      .menu {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+
+      .hero {
+        padding-top: 58px;
+      }
+
+      .hero-grid,
+      .about-box,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        min-height: 380px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .field-group {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 58px 0;
+      }
+
+      .card,
+      .about-copy,
+      .about-highlight,
+      .products-placeholder,
+      .contact-info,
+      .form-card {
+        padding: 24px;
+        border-radius: 26px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header class="wrap">
-    <div class="brand">RAIAN</div>
-    <nav>
-      <a href="index.html">Inicio</a>
-      <a href="7nudos.html">Pulsera 7 nudos</a>
-      <a href="tiras-nasales.html">Tiras nasales</a>
-    </nav>
-  </header>
+  <div class="page">
+    <header class="header">
+      <div class="container nav">
+        <a href="#inicio" class="brand" aria-label="RAIAN - Inicio">
+          <img src="/logo-raian.png" alt="Logo RAIAN" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';" />
+          <span class="brand-text">RAIAN</span>
+        </a>
 
-  <main class="wrap hero">
-    <section>
-      <p class="eyebrow">Bienvenido</p>
-      <h1>Guías de producto RAIAN</h1>
-      <p class="lead">Escanea el QR de tu producto para acceder a instrucciones, consejos de uso y material complementario.</p>
-      <div class="actions">
-        <a class="btn" href="7nudos.html">Ver guía pulsera 7 nudos</a>
-        <a class="btn ghost" href="tiras-nasales.html">Ver guía tiras nasales</a>
+        <nav aria-label="Navegación principal">
+          <ul class="menu">
+            <li><a href="#sobre-nosotros">Sobre nosotros</a></li>
+            <li><a href="#que-hacemos">Qué hacemos</a></li>
+            <li><a href="#productos">Nuestros productos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
       </div>
-    </section>
+    </header>
 
-    <section class="card">
-      <h2>Qué incluir aquí</h2>
-      <ul>
-        <li>Guías de uso por producto</li>
-        <li>Vídeos cortos o imágenes</li>
-        <li>PDF descargable opcional</li>
-        <li>Preguntas frecuentes</li>
-      </ul>
-    </section>
-  </main>
+    <main id="inicio">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="eyebrow">Marca española · Valencia</div>
+            <h1>Productos sencillos para pequeños momentos del día a día.</h1>
+            <p>
+              En RAIAN trabajamos para crear y seleccionar soluciones prácticas, cuidadas y fáciles de usar,
+              con una presentación clara y una experiencia pensada desde el primer contacto.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#contacto">Contactar con RAIAN</a>
+              <a class="button button-secondary" href="#sobre-nosotros">Conocer la marca</a>
+            </div>
+          </div>
 
-  <footer class="wrap footer">
-    <p>© RAIAN</p>
-  </footer>
+          <div class="hero-card" aria-label="Presentación visual de RAIAN">
+            <div class="visual-logo">
+              <img src="/logoraian.png" alt="RAIAN" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+              <span>RAIAN</span>
+            </div>
+            <div class="floating-panel">
+              <strong>Diseño claro. Uso fácil. Marca cuidada.</strong>
+              <p>
+                Construimos una experiencia sencilla: información útil, soporte cercano y productos preparados para integrarse en la rutina diaria.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="sobre-nosotros">
+        <div class="container">
+          <div class="section-title">
+            <span>Sobre nosotros</span>
+            <h2>RAIAN nace para convertir productos cotidianos en experiencias mejor presentadas.</h2>
+            <p>
+              Cuidamos la selección, la comunicación y los detalles para que cada producto sea fácil de entender, fácil de usar y fácil de recomendar.
+            </p>
+          </div>
+
+          <div class="about-box">
+            <div class="about-highlight">
+              <small>Nuestro enfoque</small>
+              <h3>Menos complicación. Más claridad. Mejor experiencia.</h3>
+            </div>
+            <div class="about-copy">
+              <p>
+                Somos una marca ubicada en Valencia orientada al desarrollo y distribución de productos prácticos para el consumidor final.
+                Nuestro objetivo es trabajar con criterio: buenos proveedores, información clara, diseño cuidado y atención responsable.
+              </p>
+              <p>
+                No buscamos prometer de más. Preferimos explicar bien cada producto, acompañarlo con guías útiles y mantener una comunicación directa con nuestros clientes y colaboradores.
+              </p>
+              <ul>
+                <li>Selección de productos con utilidad real.</li>
+                <li>Presentación cuidada y comunicación sencilla.</li>
+                <li>Soporte y documentación pensados para el usuario.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="que-hacemos">
+        <div class="container">
+          <div class="section-title">
+            <span>Qué hacemos</span>
+            <h2>Desarrollamos productos y contenidos que facilitan la decisión y el uso.</h2>
+            <p>
+              Cada proyecto se trabaja desde la utilidad, la claridad visual y la confianza: qué es, para qué sirve, cómo se usa y cuándo conviene contactar.
+            </p>
+          </div>
+
+          <div class="cards">
+            <article class="card">
+              <div class="icon">1</div>
+              <h3>Selección con criterio</h3>
+              <p>Analizamos productos, proveedores y formatos para priorizar opciones prácticas, viables y fáciles de entender.</p>
+            </article>
+            <article class="card">
+              <div class="icon">2</div>
+              <h3>Experiencia de marca</h3>
+              <p>Cuidamos packaging, instrucciones, contenido visual y tono para que la experiencia sea coherente desde el primer momento.</p>
+            </article>
+            <article class="card">
+              <div class="icon">3</div>
+              <h3>Atención y mejora</h3>
+              <p>Escuchamos dudas, revisamos feedback y seguimos mejorando nuestros materiales de uso y comunicación.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="productos">
+        <div class="container">
+          <div class="section-title">
+            <span>Nuestros productos</span>
+            <h2>Catálogo RAIAN</h2>
+            <p>Estamos preparando esta sección para presentar la información de forma clara y ordenada.</p>
+          </div>
+
+          <div class="products-placeholder">
+            <strong>Página en preparación</strong>
+            <p>
+              Próximamente añadiremos más información sobre nuestros productos. De momento, esta sección permanecerá sin detalles públicos.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto">
+        <div class="container contact-grid">
+          <div class="contact-info">
+            <h3>Contacta con RAIAN</h3>
+            <p>
+              Para consultas comerciales, colaboraciones o soporte, puedes escribirnos mediante el formulario.
+            </p>
+            <div class="contact-row">
+              <small>Email</small>
+              <a href="mailto:contacto@raian.es">ventas@raian.es</a>
+            </div>
+            <div class="contact-row">
+              <small>Ubicación</small>
+              <span>Valencia, España</span>
+            </div>
+            <div class="contact-row">
+              <small>Marca</small>
+              <span>RAIAN</span>
+            </div>
+          </div>
+
+          <div class="form-card">
+            <form id="contactForm">
+              <div class="field-group">
+                <label>
+                  Nombre
+                  <input type="text" name="nombre" placeholder="Tu nombre" required />
+                </label>
+                <label>
+                  Email
+                  <input type="email" name="email" placeholder="tu@email.com" required />
+                </label>
+              </div>
+
+              <label>
+                Asunto
+                <input type="text" name="asunto" placeholder="Motivo de contacto" required />
+              </label>
+
+              <label>
+                Mensaje
+                <textarea name="mensaje" placeholder="Cuéntanos en qué podemos ayudarte" required></textarea>
+              </label>
+
+              <label class="privacy">
+                <input type="checkbox" required />
+                <span>He leído y acepto la <a href="/politica-privacidad">política de privacidad</a>.</span>
+              </label>
+
+              <button class="button button-primary" type="submit">Enviar mensaje</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>© <span id="year"></span> RAIAN AMZ SL. Todos los derechos reservados.</p>
+        <div class="footer-links">
+          <a href="/aviso-legal">Aviso legal</a>
+          <a href="/politica-privacidad">Política de privacidad</a>
+          <a href="/politica-cookies">Política de cookies</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    document.getElementById("contactForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const form = new FormData(event.currentTarget);
+      const nombre = form.get("nombre");
+      const email = form.get("email");
+      const asunto = form.get("asunto");
+      const mensaje = form.get("mensaje");
+
+      const destino = "ventas@raian.es";
+      const subject = encodeURIComponent("Contacto web RAIAN: " + asunto);
+      const body = encodeURIComponent(
+        "Nombre: " + nombre + "\n" +
+        "Email: " + email + "\n\n" +
+        "Mensaje:\n" + mensaje
+      );
+
+      window.location.href = "mailto:" + destino + "?subject=" + subject + "&body=" + body;
+    });
+  </script>
 </body>
 </html>
