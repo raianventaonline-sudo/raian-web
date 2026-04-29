@@ -430,6 +430,60 @@
       color: var(--azul);
     }
 
+    .related-products {
+      margin-top: 22px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid var(--borde);
+      border-radius: 30px;
+      padding: 28px;
+      box-shadow: 0 14px 34px rgba(8, 42, 99, 0.08);
+    }
+
+    .related-products h2 {
+      font-size: clamp(24px, 3.2vw, 34px);
+      letter-spacing: -0.8px;
+      margin-bottom: 8px;
+    }
+
+    .related-products > p {
+      color: var(--gris);
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .related-item {
+      border: 1px solid var(--borde);
+      border-radius: 20px;
+      padding: 18px;
+      background: #fff;
+    }
+
+    .related-item h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .related-item p {
+      color: var(--gris);
+      font-size: 15px;
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    .related-item .amazon-btn {
+      padding: 11px 16px;
+      font-size: 14px;
+      box-shadow: 0 8px 18px rgba(8, 42, 99, 0.16);
+      border: 1px solid rgba(8, 42, 99, 0.14);
+    }
+
     .info {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
@@ -663,6 +717,10 @@
         grid-template-columns: 1fr;
       }
 
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+
       .review-card,
       .buy-card {
         padding: 26px 22px;
@@ -788,6 +846,35 @@
         </a>
       </div>
 
+    </section>
+
+    <section class="related-products" aria-label="Productos relacionados">
+      <h2>Productos relacionados</h2>
+      <p>
+        Si quieres completar tu rutina, aquí tienes dos productos más de nuestro catálogo disponibles en Amazon.
+      </p>
+
+      <div class="related-grid">
+        <article class="related-item">
+          <h3>Tiras bucales RAIAN</h3>
+          <p>
+            Cinta labial para favorecer la respiración nasal nocturna y apoyar una rutina de descanso.
+          </p>
+          <a href="https://www.amazon.es/dp/B0GTJ2ZXLV/" class="amazon-btn" target="_blank" rel="noopener noreferrer">
+            Comprar en Amazon
+          </a>
+        </article>
+
+        <article class="related-item">
+          <h3>Tiras mixtas RAIAN</h3>
+          <p>
+            Pack combinado para alternar tiras nasales y bucales según tu momento del día o de descanso.
+          </p>
+          <a href="https://www.amazon.es/dp/B0GTJWRPPM/" class="amazon-btn" target="_blank" rel="noopener noreferrer">
+            Comprar en Amazon
+          </a>
+        </article>
+      </div>
     </section>
 
     <section class="info">
